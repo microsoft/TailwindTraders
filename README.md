@@ -9,7 +9,7 @@ This release intends to share a simplified version of the reference sample apps 
 
 For this demo reference, we built several consumer and line-of-business applications and a set of backend services. You can find all repositories in the following locations:
 
-* [Backend(AKS)](https://github.com/Microsoft/TailwindTraders-Backend)
+* [Backend (AKS)](https://github.com/Microsoft/TailwindTraders-Backend)
 * [Website (ASP.NET & React)](https://github.com/Microsoft/TailwindTraders-Website)
 * [Desktop (WinForms & WPF -.NET Core)](https://github.com/Microsoft/TailwindTraders-Desktop)
 * [Rewards (ASP.NET Framework)](https://github.com/Microsoft/TailwindTraders-Rewards)
