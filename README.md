@@ -1,4 +1,4 @@
-# Tailwind Traders
+# Tailwind Traders Reference Apps
 We are happy to announce the release of Tailwind Traders. A fictitious retail company showcasing the future of intelligent application experiences. These reference apps are all are powered by the Azure cloud, built with best-in-class tools, and made smarter through data and AI.
 
 This release intends to share a simplified version of the reference sample apps used at Connect(); 2018 Keynotes.
