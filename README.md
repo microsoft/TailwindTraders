@@ -9,12 +9,12 @@ This release intends to share a simplified version of the reference sample apps 
 
 For this demo reference, we built several consumer and line-of-business applications and a set of backend services. You can find all repositories in the following locations:
 
-* [Backend](https://github.com/Microsoft/TailwindTraders-Backend)
-* [Website](https://github.com/Microsoft/TailwindTraders-Website)
-* [Desktop](https://github.com/Microsoft/TailwindTraders-Desktop)
-* [Rewards](https://github.com/Microsoft/TailwindTraders-Rewards)
-* [Mobile](https://github.com/Microsoft/TailwindTraders-Mobile)
-* [Gnomes](https://github.com/Microsoft/TailwindTraders-Opener)
+* [Backend(AKS)](https://github.com/Microsoft/TailwindTraders-Backend)
+* [Website (ASP.NET & React)](https://github.com/Microsoft/TailwindTraders-Website)
+* [Desktop (WinForms & WPF -.NET Core)](https://github.com/Microsoft/TailwindTraders-Desktop)
+* [Rewards (ASP.NET Framework)](https://github.com/Microsoft/TailwindTraders-Rewards)
+* [Mobile (Xamarin Forms 4.0)](https://github.com/Microsoft/TailwindTraders-Mobile)
+* [Gnomes Storefront (Node.js & React)](https://github.com/Microsoft/TailwindTraders-Opener)
 
 Also as part of Connect; 2018 we also released the [AI Vision Provision](https://github.com/Microsoft/AIVisualProvision) sample mobile app, which allows you to deploy Azure services from scanning Azure Services Logos or Text.
 
