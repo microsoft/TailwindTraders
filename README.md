@@ -11,7 +11,7 @@ For this demo reference, we built several consumer and line-of-business applicat
 
 * [Backend](https://github.com/Microsoft/TailwindTraders-Backend)
 * [Website](https://github.com/Microsoft/TailwindTraders-Website)
-* [Desktop](hhttps://github.com/Microsoft/TailwindTraders-Desktop)
+* [Desktop](https://github.com/Microsoft/TailwindTraders-Desktop)
 * [Rewards](https://github.com/Microsoft/TailwindTraders-Rewards)
 * [Mobile](https://github.com/Microsoft/TailwindTraders-Mobile)
 * [Gnomes](https://github.com/Microsoft/TailwindTraders-Opener)
