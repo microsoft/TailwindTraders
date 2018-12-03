@@ -16,7 +16,7 @@ For this demo reference, we built several consumer and line-of-business applicat
 * [Mobile (Xamarin Forms 4.0)](https://github.com/Microsoft/TailwindTraders-Mobile)
 * [Gnomes Storefront (Node.js & React)](https://github.com/Microsoft/TailwindTraders-Opener)
 
-Also as part of Connect(); 2018 we also released the [AI Vision Provision](https://github.com/Microsoft/AIVisualProvision) sample mobile app, which allows you to deploy Azure services from scanning Azure Services Logos or Text. The [AI Pet Checker](https://github.com/Microsoft/AI-PetChecker) demo app is also available, learn how to create a Pet Checker image recognition with Azure Notebooks, Azure Machine Learning and Visual Studio Code.
+Also as part of Connect(); 2018 we also released the [AI Vision Provision](https://github.com/Microsoft/AIVisualProvision) sample mobile app, which allows you to deploy Azure services from scanning Azure Services Logos or Text. The [AI Pet Detector](https://github.com/Microsoft/connect-petdetector) demo app is also available, learn how to create a Pet Detector image recognition with Azure Notebooks, Azure Machine Learning and Visual Studio Code.
 
 <img src="Documents/Images/Website.png" alt="Tailwind Traders Website"/>
 <img src="Documents/Images/Mobile.png" alt="Tailwind Traders Mobile Apps"/>
