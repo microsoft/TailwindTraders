@@ -21,6 +21,8 @@ Also as part of Connect(); 2018 we also released the [AI Vision Provision](https
 
 <img src="Documents/Images/Diagram.png" alt="Tailwind Traders Application Diagram"/>
 
+> BFF= Backend ForeFront 
+
 # Application Screens
 
 <img src="Documents/Images/Website.png" alt="Tailwind Traders Website"/>
