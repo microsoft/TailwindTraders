@@ -14,16 +14,21 @@ For this demo reference, we built several consumer and line-of-business applicat
 * [Desktop (WinForms & WPF -.NET Core)](https://github.com/Microsoft/TailwindTraders-Desktop)
 * [Rewards (ASP.NET Framework)](https://github.com/Microsoft/TailwindTraders-Rewards)
 * [Mobile (Xamarin Forms 4.0)](https://github.com/Microsoft/TailwindTraders-Mobile)
-* [Gnomes Storefront (Node.js & React)](https://github.com/Microsoft/TailwindTraders-Opener)
 
 Also as part of Connect(); 2018 we also released the [AI Vision Provision](https://github.com/Microsoft/AIVisualProvision) sample mobile app, which allows you to deploy Azure services from scanning Azure Services Logos or Text. The [AI Pet Detector](https://github.com/Microsoft/connect-petdetector) demo app is also available, learn how to create a Pet Detector image recognition with Azure Notebooks, Azure Machine Learning and Visual Studio Code.
+
+# Application Diagram
+
+<img src="Documents/Images/Diagram.png" alt="Tailwind Traders Application Diagram"/>
+
+# Application Screens
 
 <img src="Documents/Images/Website.png" alt="Tailwind Traders Website"/>
 <img src="Documents/Images/Mobile.png" alt="Tailwind Traders Mobile Apps"/>
 <img src="Documents/Images/Rewards.png" alt="Tailwind Traders Rewards"/>
 <img src="Documents/Images/Desktop.png" alt="Tailwind Traders Desktop"/>
 
-# Sign up for Microsoft Azure
+# Sign Up for Microsoft Azure
 
 You will need an Azure subscription to work with this demo code. You can:
 
