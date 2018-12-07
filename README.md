@@ -35,8 +35,9 @@ As part of Connect(); 2018 we also released the [AI Vision Provision](https://gi
 You will need an Azure subscription to work with this demo code. You can:
 
 - Open an account for free [Azure subscription](https://azure.com). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
-- [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers/). Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
-- Create an [Azure student account](https://azure.microsoft.com/en-us/free/students/) and get a $100 credit when you create your Azure free account.
+- [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
+- Create an [Azure student account](https://azure.microsoft.com/free/students/) and get free credit when you create your account.
+
 Learn more about it with [Microsoft Learn - Introduction to Azure](https://docs.microsoft.com/learn/azure).
 
 # Blog posts and videos
