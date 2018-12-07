@@ -41,8 +41,17 @@ Learn more about it with [Microsoft Learn - Introduction to Azure](https://docs.
 
 # Blog posts and videos
 
-Placeholder for posting the videos and blog posts from Connect(); 2018.
+Videos and blog posts from Connect(); 2018:
 
+- [Scott Gutherie's blog post](https://blogs.microsoft.com/blog/2018/12/04/empowering-every-developer-to-achieve-more-at-microsoft-connect-2018)
+
+- Scott Gutherie's Keynote:
+
+[![Scott Gutherie's Keynote](http://img.youtube.com/vi/neij6TfYaIk/0.jpg)](http://www.youtube.com/watch?v=neij6TfYaIk)
+
+- Scott Hanselman's Keynote
+
+[![Scott Hanselman's Keynote](http://img.youtube.com/vi/5_iE7azx7Vo/0.jpg)](http://www.youtube.com/watch?v=5_iE7azx7Vo)
 
 # Contributing
 
