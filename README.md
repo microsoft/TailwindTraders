@@ -49,7 +49,7 @@ Videos and blog posts from Connect(); 2018:
 
 [![Scott Gutherie's Keynote](http://img.youtube.com/vi/neij6TfYaIk/0.jpg)](http://www.youtube.com/watch?v=neij6TfYaIk)
 
-- Scott Hanselman's Keynote
+- Scott Hanselman's Keynote:
 
 [![Scott Hanselman's Keynote](http://img.youtube.com/vi/5_iE7azx7Vo/0.jpg)](http://www.youtube.com/watch?v=5_iE7azx7Vo)
 
