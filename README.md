@@ -44,11 +44,11 @@ Learn more about it with [Microsoft Learn - Introduction to Azure](https://docs.
 
 Videos and blog posts from Connect(); 2018:
 
-- [Scott Gutherie's blog post](https://blogs.microsoft.com/blog/2018/12/04/empowering-every-developer-to-achieve-more-at-microsoft-connect-2018)
+- [Scott Guthrie's blog post](https://blogs.microsoft.com/blog/2018/12/04/empowering-every-developer-to-achieve-more-at-microsoft-connect-2018)
 
-- Scott Gutherie's Keynote:
+- Scott Guthrie's Keynote:
 
-[![Scott Gutherie's Keynote](http://img.youtube.com/vi/neij6TfYaIk/0.jpg)](http://www.youtube.com/watch?v=neij6TfYaIk)
+[![Scott Guthrie's Keynote](http://img.youtube.com/vi/neij6TfYaIk/0.jpg)](http://www.youtube.com/watch?v=neij6TfYaIk)
 
 - Scott Hanselman's Keynote:
 
