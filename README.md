@@ -21,7 +21,7 @@ As part of Connect(); 2018 we also released the [AI Vision Provision](https://gi
 
 <img src="Documents/Images/Diagram.png" alt="Tailwind Traders Application Diagram"/>
 
-> BFF= Backend ForeFront 
+> BFF = [Backend For Frontend](https://docs.microsoft.com/en-us/azure/architecture/patterns/backends-for-frontends)
 
 # Application Screens
 
