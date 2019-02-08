@@ -152,18 +152,16 @@ Now that we have seen how to deploy an application onto Azure and how to get som
     ![Details](Images/custdetail.png)
     ![Dynamic content](Images/dynamiccontent.png)
 
-1. In the search bar, type **send text message** and select the **Twilio** action to configure and send a text message. 
+1. In the search bar, type **send an email** and select the **Send and Email Office 365 Outlook** action to configure and send the email.
 
-    ![SMS](Images/sms.png)
+    ![Email](Images/sendanemail.png)
 
-    > You need to create a Twilio or Sendgrid account beforehand and use its details to configure it here.
+    > You need to sign in with a valid Office 365.
 
-1. Provide the connection name, Twilio account credentials and click **Create**. Enter the mobile number and other details in the resulting window. Use the dynamic content from the **Dynamic content** box available within the designer. Save the changes. However, you can hard code the **To Phone Number** with your valid mobile number since the mobile number in the database is dummy data.
+    ![Office365](Images/o365signin.png)
 
-    ![Twilio Config](Images/twilio-config.png)
+1. Using the **Dynamic Content** from the database enter the **email address**, and personalize the subject and body of the email.
 
-    ![Twilio](Images/twilio.png)
+    ![Email Config](Images/editemail.png)
 
-    ![Dynamic content](Images/dynamic-twilio.png)
-
-1. When you click the checkbox, the corresponding record is updated in the database which will essentially flip a flag that enrolls the customer to the loyalty program and sends them a text message.
+1. Once you are done click on save and then run. Now, the corresponding records are going to be  updated in the database which will essentially flip a flag that enrolls the customer to the loyalty program and sends them a welcome email.
