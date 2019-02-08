@@ -17,6 +17,18 @@ For this demo reference, we built several consumer and line-of-business applicat
 
 As part of Connect(); 2018 we also released the [AI Vision Provision](https://github.com/Microsoft/AIVisualProvision) sample mobile app, which allows you to deploy Azure services from scanning Azure Services Logos or Text. The [AI Pet Detector](https://github.com/Microsoft/connect-petdetector) demo app is also available, learn how to create a Pet Detector image recognition with Azure Notebooks, Azure Machine Learning and Visual Studio Code.
 
+# Demo Scripts
+
+You can find four **[demo scripts](Documents/DemoScripts)** that show the power of Azure, Visual Studio and GitHub.
+
+ * **[Integrating Azure Pipelines, GitHub and Azure Boards](https://github.com/Microsoft/TailwindTraders/tree/master/Documents/DemoScripts/Integrating%20Azure%20Pipelines,%20GitHub%20and%20Azure%20Boards)**  demonstrates the ability to easily use GitHub for hosting source code and use Azure Pipelines for continuous integration and continuous delivery to quickly deploy changes to Azure. Connect Azure Boards with GitHub repositories to take advantage of the rich project management capabilities provided by Azure Boards that spans Kanban boards, backlogs, team dashboards, and custom reporting, etc.
+ 
+* **[Managing backend with Azure Kubernetes Service (AKS)](https://github.com/Microsoft/TailwindTraders/tree/master/Documents/DemoScripts/Managing%20backend%20with%20Azure%20Kubernetes%20Service%20(AKS))** learn how AKS allows you to managed orchestration of containers and also provides auto-patching, auto-scaling and updates support which enables you to use the full breadth of the Kubernetes ecosystem. Take advantage of Virtual Node that enables you to elastically provision additional nodes inside your Kubernetes clusters in just seconds, a first-of-its-kind serverless computing option with AKS enables you to provision and scale your Kubernetes based apps more efficiently.
+
+* **[Modernizing .NET Apps](https://github.com/Microsoft/TailwindTraders/tree/master/Documents/DemoScripts/Modernizing%20.NET%20Apps)** move apps to the cloud and take advantage of cloud native solutions to modernize it and explore the benefits of Azure App Services.
+
+* **[Productivity Improvements in Visual Studio 2019](https://github.com/Microsoft/TailwindTraders/tree/master/Documents/DemoScripts/Productivity%20Improvements%20in%20Visual%20Studio%202019)** the new version contains many new and exciting features and IDE productivity enhancements to support Windows app development, cross-platform mobile development, Azure development, web and cloud development, and more.
+
 # Application Diagram
 
 <img src="Documents/Images/Diagram.png" alt="Tailwind Traders Application Diagram"/>
