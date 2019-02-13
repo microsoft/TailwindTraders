@@ -282,8 +282,6 @@ Pre-requisites for this deployment:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FTailwindTraders-Website%2Fmaster%2FDeploy%2Fdeployment.json"><img src="https://github.com/Microsoft/TailwindTraders/blob/master/Documents/DemoScripts/Managing%20backend%20with%20Azure%20Kubernetes%20Service%20(AKS)/Images/deploy-to-azure.png" alt="Deploy to Azure"/></a>
 
-    >Note: You can deploy the website inside an AKS cluster. If you want to do so instead of deploying the web in App Service please, check the [documentation](https://github.com/Microsoft/TailwindTraders-Website/blob/master/Deploy/deploy-on-aks.md)
-
     ![customtemplate2](Images/customtemplate2.png)
 
 1. When deploying to Azure pay attention to parameters **User Email** and **Api Base Url**.
@@ -308,9 +306,9 @@ Pre-requisites for this deployment:
 
     ![website](Images/loadunsafescripts.png)
     
-## Walkthrough: Virtual Nodes
+## Walkthrough: Virtual Nodes (Optional)
 
- 1. In the **Azure portal**, go to your **AKS cluster** and click on the **Scale** tab. In AKS, you can easily control the scale of Kubernetes cluster. You can see how many cores, memory is consumed. But if you think of an event like Black Friday this number can actually be extremely daunting. If you set this number too high you are going be paying for resources that you are not using. But if you set it too low your website is going to get overwhelmed and you are going to lose sales.
+ 1. When you create a Kubernetes Service in the **Azure portal**, you can go to your **AKS cluster** and click on the **Scale** tab. In AKS, you can easily control the scale of Kubernetes cluster. You can see how many cores, memory is consumed. But if you think of an event like Black Friday this number can actually be extremely daunting. If you set this number too high you are going be paying for resources that you are not using. But if you set it too low your website is going to get overwhelmed and you are going to lose sales.
 
     ![](Images/aksscale.gif)
 
