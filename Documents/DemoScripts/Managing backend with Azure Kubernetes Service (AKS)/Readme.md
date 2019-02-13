@@ -280,7 +280,7 @@ Pre-requisites for this deployment:
 
 1. ARM template is provided so that you can automate the creation of the resources for the website. Select the **Deploy to Azure** button (or right click and select the Open in new tab option) to spin up App Service, Azure Container Registry (ACR).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgithub.com%2FMicrosoft%2FTailwindTraders-Website%2Fblob%2Fmaster%2FDeploy%2Fdeployment.json"><img src="https://github.com/Microsoft/TailwindTraders/blob/master/Documents/DemoScripts/Managing%20backend%20with%20Azure%20Kubernetes%20Service%20(AKS)/Images/deploy-to-azure.png" alt="Deploy to Azure"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FTailwindTraders-Website%2Fmaster%2FDeploy%2Fdeployment.json"><img src="https://github.com/Microsoft/TailwindTraders/blob/master/Documents/DemoScripts/Managing%20backend%20with%20Azure%20Kubernetes%20Service%20(AKS)/Images/deploy-to-azure.png" alt="Deploy to Azure"/></a>
 
     >Note: You can deploy the website inside an AKS cluster. If you want to do so instead of deploying the web in App Service please, check the [documentation](https://github.com/Microsoft/TailwindTraders-Website/blob/master/Deploy/deploy-on-aks.md)
 
