@@ -29,6 +29,8 @@ You can find four **[demo scripts](Documents/DemoScripts)** that show the power 
 
 * **[Productivity Improvements in Visual Studio 2019](https://github.com/Microsoft/TailwindTraders/tree/master/Documents/DemoScripts/Productivity%20Improvements%20in%20Visual%20Studio%202019)** the new version contains many new and exciting features and IDE productivity enhancements to support Windows app development, cross-platform mobile development, Azure development, web and cloud development, and more.
 
+* **[Visual Studio App Center Capabilities](https://github.com/Microsoft/TailwindTraders/tree/master/Documents/DemoScripts/Visual%20Studio%20App%20Center%20Capabilities)** Automate the Build-Test-Distribute process for your mobile projects in GitHub. Continuous Integration and Continuous Delivery (CI/CD) with UI Test.
+
 # Application Diagram
 
 <img src="Documents/Images/Diagram.png" alt="Tailwind Traders Application Diagram"/>
