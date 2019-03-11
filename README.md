@@ -19,7 +19,7 @@ As part of Connect(); 2018 we also released the [AI Vision Provision](https://gi
 
 # Demo Scripts
 
-You can find four **[demo scripts](Documents/DemoScripts)** that show the power of Azure, Visual Studio and GitHub.
+You can find the **[demo scripts](Documents/DemoScripts)** that show the power of Azure, Visual Studio and GitHub.
 
  * **[Integrating Azure Pipelines, GitHub and Azure Boards](https://github.com/Microsoft/TailwindTraders/tree/master/Documents/DemoScripts/Integrating%20Azure%20Pipelines,%20GitHub%20and%20Azure%20Boards)**  demonstrates the ability to easily use GitHub for hosting source code and use Azure Pipelines for continuous integration and continuous delivery to quickly deploy changes to Azure. Connect Azure Boards with GitHub repositories to take advantage of the rich project management capabilities provided by Azure Boards that spans Kanban boards, backlogs, team dashboards, and custom reporting, etc.
  
