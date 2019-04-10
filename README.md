@@ -56,6 +56,10 @@ Learn more about it with [Microsoft Learn - Introduction to Azure](https://docs.
 
 # Blog posts and videos
 
+Visual Studio 2019 Launch Event:
+
+[![Visual Studio 2019 Launch: Not your average keynote](http://img.youtube.com/vi/DANLUUIUrcM/0.jpg)](http://www.youtube.com/watch?v=DANLUUIUrcM)
+
 Videos and blog posts from Connect(); 2018:
 
 - [Scott Guthrie's blog post](https://blogs.microsoft.com/blog/2018/12/04/empowering-every-developer-to-achieve-more-at-microsoft-connect-2018)
