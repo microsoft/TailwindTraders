@@ -56,6 +56,10 @@ Learn more about it with [Microsoft Learn - Introduction to Azure](https://docs.
 
 # Blog posts and videos
 
+Azure Friday: An overview of the Tailwind Traders reference apps for Azure
+
+[![Azure Friday: An overview of the Tailwind Traders reference apps for Azure](http://img.youtube.com/vi/EP-PME-1tq0/0.jpg)](http://www.youtube.com/watch?v=EP-PME-1tq0)
+
 Visual Studio 2019 Launch Event:
 
 [![Visual Studio 2019 Launch: Not your average keynote](http://img.youtube.com/vi/DANLUUIUrcM/0.jpg)](http://www.youtube.com/watch?v=DANLUUIUrcM)
