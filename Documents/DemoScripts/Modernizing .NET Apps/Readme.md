@@ -139,7 +139,7 @@ The scenario in this walkthrough is that when the customer enrolls in a loyalty 
 
 1. Provide the **SQL Server** credentials and choose the **Tailwind Traders** database and click **Create**. I am monitoring this customer table. Now at any time, when there's a change in this customer table the workflow is going to start to execute.
 
-    ![SQL Details](Images/sqldetail.png) 
+    ![SQL Details](Images/sqldetail.png)
 
 1. In the resulting window, choose **Customers** as the SQL table, set the **interval** as *10* and **Frequency** as *Seconds*. Click the **+ New step** icon to create a new step.
 
