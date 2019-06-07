@@ -26,15 +26,15 @@ When the local infrastructure is outgrowing on which the application is hosted, 
 
     ![Launch VS](Images/launchvs.png)
 
-1. Click the **Clone or check out code** option and enter the **Tailwind Traders Rewards** repository URL – https://github.com/Microsoft/TailwindTraders-Rewards.git in the Code Repository Location and click **Clone**. Under the **Solutions and Folders**, click **Tailwind.Traders.Rewards.sln** to open the solution.
+1. Click the **Clone or check out code** option and enter the **Tailwind Traders Rewards** repository URL – https://github.com/Microsoft/TailwindTraders-Rewards.git in the Code Repository Location and click **Clone**. Under the **Solutions and Folders**, click **Tailwind.Traders.Rewards.Website.sln** to open the solution.
 
     ![Rewards Clone](Images/clonerepo.png)
 
-1. Right-click the project **Tailwind.Traders.Rewards.Web** and choose **Publish**. This is the same Publish dialog box that you can use to deploy onto **IIS6** in your local infrastructure. Using this *Publish* dialog, you will deploy the application to Azure cloud. 
+1. Right-click the project **Tailwind.Traders.Rewards.Website** and choose **Publish**. This is the same Publish dialog box that you can use to deploy onto **IIS6** in your local infrastructure. Using this *Publish* dialog, you will deploy the application to Azure cloud. 
 
     ![Publish App](Images/publishapp.png)
 
-1. Choose **App Service** as the Publish target. Under the **Azure App Service** window, choose **Create New** and click **Publish**.
+1. Choose **App Service** as the Publish target. Under the **Azure App Service** window, choose **Create New** and click **Create Profile**.
 
     ![Publish Options](Images/appprofile.png)
 
@@ -113,7 +113,9 @@ Now that the Azure web app is running, let's look at some options available in t
 
 Now that we have seen how to deploy an application onto Azure and how to get some richer debug information, let's head back to the application mode. **Azure Logic Apps** simplifies how you build automated scalable workflows that integrate apps and data across cloud services and on-premises systems. We have a large number of connectors that we could use for instance the Azure service bus to make HTTP requests, SAP connectors, etc.
 
-1. On the left side of the application, you will see an option **Enroll in loyalty program**. The supposed functionality of this option is that every time the checkbox is clicked, a workflow is started to verify the user and enroll them in Tailwind Traders' loyalty program.  When you check that check-box, you will only see a *Enrollment in process* message.
+The scenario in this walkthrough is that when the customer enrolls in a loyalty program, depending on the country registered as either **Mexico** or **Spain**, the email content will be translated to the respective language. 
+
+1. On the left side of the application, you will see an option **Enroll in loyalty program**. The supposed functionality of this option is that every time the checkbox is clicked, a workflow is started to verify the user, country registered and enroll them in Tailwind Traders' loyalty program with an email confirmation in their local language (for Spain and Mexico).  When you check that check-box, you will only see a *Enrollment in process* message.
 
     ![Enroll program](Images/enrollprogram.png)
 
@@ -152,7 +154,22 @@ Now that we have seen how to deploy an application onto Azure and how to get som
     ![Details](Images/custdetail.png)
     ![Dynamic content](Images/dynamiccontent.png)
 
-1. In the search bar, type **send an email** and select the **Send and Email Office 365 Outlook** action to configure and send the email.
+1. In the search box, enter **condition** as your filter. Select this action: *Condition - Control*. Change the clause to **Or**, choose **Country** as the dynamic content for both the rows and **Spain**, **Mexico** as values.
+
+    ![Country](Images/countrycondition.png)
+
+1. Under **If true** and **If false**, add the steps to perform based on whether the condition is met. Let's look at **If true**. Insert a new action **microsoft translator v2** and choose **translate text(preview)** under **Actions**. 
+
+    ![Translate Text](Images/translatetext1.png)
+
+1. Choose the **Target Language** as **Spanish** and add the **Text** as in the below picture. Choose *FirstName, LastName, AccountCode* from the dynamic content list. 
+
+    `Welcome to our rewards program ['FirstName']['LastName']
+Your account code is ['AccountCode']`
+
+    ![Text](Images/translatetext2.png)
+
+1. In the search bar, type **Send an email** and select the **Send and Email Office 365 Outlook** action to configure and send the email.
 
     ![Email](Images/sendanemail.png)
 
@@ -160,8 +177,16 @@ Now that we have seen how to deploy an application onto Azure and how to get som
 
     ![Office365](Images/o365signin.png)
 
-1. Using the **Dynamic Content** from the database enter the **email address**, and personalize the subject and body of the email.
+1. Using the **Dynamic Content** from the database enter **email** for **To** field, fill the **Subject** as *Tailwind Traders Rewards* and choose **Translated text** from dynamic content for **Body**.
 
     ![Email Config](Images/editemail.png)
 
-1. Once you are done click on save and then run. Now, the corresponding records are going to be  updated in the database which will essentially flip a flag that enrolls the customer to the loyalty program and sends them a welcome email.
+1. Under **If false**, let's add an action **Send an email** from the search bar and select the **Send and Email Office 365 Outlook** action to configure and send the email. Using the **Dynamic Content** from the database enter **email** for **To** field, fill the **Subject** as *Tailwind Traders Rewards* and use *Dynamic Content* to write the email **Body** as shown in the picture.
+
+    ![False Condition](Images/falseconditionmail.png)
+
+1. Click to save the Logic app work flow and return to the website. Now, click the **Enroll in loyalty program** checkbox. Now, the corresponding records are going to be updated in the database which will essentially flip a flag that enrolls the customer to the loyalty program and sends them a welcome email in the respective language.
+
+    ![Welcome Email](Images/welcomemailspanish.png)
+
+    ![Welcome Email Eng](Images/welcomemailenglish.png)
