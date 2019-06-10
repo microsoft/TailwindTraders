@@ -178,7 +178,7 @@ By connecting Azure Boards with GitHub repositories, you enable linking between 
 
     ![Bugs with requirements](Images/boardsettings.png)
 
-1. Click **New Work Item** and add a *Bug* with the title **Fix the Shipping typo**. Press Enter to create.
+1. Click **New Work Item** and select the *Bug* from drop-down and add the title **Rephrase the description-For $100 or more orders**. Click **Add to top** to create the bug.
 
     ![Create user story](Images/newbug.png)
 
@@ -202,23 +202,25 @@ By connecting Azure Boards with GitHub repositories, you enable linking between 
 
     ![Chosen Repos](Images/chosenrepos.png)
 
-1. Return to the web app and notice the spelling of *Free Shipping**.
+1. Return to the web app and notice the description **For $100 or more orders**.
 
     ![Web App](Images/tailwindtraderapp.png)
 
-1. Let's go and fix the typo. Return to Visual Studio and clone the GitHub repository to your machine. Open the solution and create a new branch **FixTypos**. 
+1. Create a branch **FixBug** in your GitHub account. 
 
     ![Create branch](Images/createbranch.png)
+
+1. Return to Visual Studio, open the solution which is inside the new branch **FixBug**. Let's go and rephrase the sentence.
 
 1. In the *Solution Explorer*, open the file **translation.json** under *Tailwind.Traders.Web\ClientApp\src\assets\locales\translation.json*. 
 
     ![Open JSON](Images/openfile.png)
 
-1. Search for **home.hero.shiping** and replace the word *Shiping* with **Shipping**. Save the file. 
+1. Search for **home.hero.orders** and rephrase the sentence *For $100 or more orders* with **For orders worth $100 or more**. Save the file. 
 
     ![Fix Typo](Images/fixtypo.png)
 
-1. Click **Changes** in the *Team Explorer*, provide a commit message **Fixed Typos ##WorkItemID** and choose **Commit Staged and Push**. 
+1. Click **Changes** in the *Team Explorer*, provide a commit message **Fixes AB##WorkItemID** and choose **Commit Staged and Push**. 
 
     ![Commit File](Images/commitchanges.png)
 
@@ -236,7 +238,7 @@ By connecting Azure Boards with GitHub repositories, you enable linking between 
 
 1. The title should initialize to the commit message entered earlier. Click **Create pull request**.
 
-1. Return to Visual Studio. Under **Team Explorer**, click **Pull Requests**. Double-click the previously created Pull Request. You should see all details related to that pull request like the **status, Description, Reviewers(if any), Changes**.
+1. Return to Visual Studio. Under **Team Explorer**, click **Pull Requests**. Choose your GitHub repository if required to see the PR. Double-click the previously created Pull Request. You should see all details related to that pull request like the **status, Description, Reviewers(if any), Changes**.
 
     ![PR Details](Images/prdetails.png)
 

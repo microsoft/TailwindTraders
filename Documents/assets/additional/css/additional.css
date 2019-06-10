@@ -1930,11 +1930,27 @@ html, body {
 
 .twt-padding .section-text {
   padding: 2rem 0;
-  text-align: left;
+  text-align: justify;
 }
 
 .twt-padding .inner-container {
   margin: 0 auto;
+}
+
+.app_btn{
+  display: block;
+  background-color: #fff;
+  box-shadow: 1px 11px 9px -6px rgba(0, 0, 0, 0.28);
+  color: #2f4b66;
+  padding: .5rem;
+  width: 100%;
+  line-height: 100%;
+  margin: 5px 0;
+}
+.drop_btn{
+  height: 54px;
+    display: inline-block;
+    position: relative;
 }
 
 @media (max-width: 768px) {
