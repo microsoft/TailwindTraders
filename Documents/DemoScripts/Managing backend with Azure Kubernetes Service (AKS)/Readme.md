@@ -49,27 +49,6 @@ Pre-requisites for this deployment:
 
     > Note: This deployment can take up to 12 minutes. Do not use **West US** location if you are using MSDN subscription.
 
-1. Navigate to your resource group to see the list of resources created.
-
-    ![resourcegroup](Images/resourcegroup.png)
-
-1. Now that the Storage is created, upload images manually.
-
-    a. Create four blob containers in the storage with public access. Use the below zip file names as the container names. Download and extract the images to corresponding folders locally. 
-
-    - product-list.zip: https://1drv.ms/u/s!Asa-selZwiFlg_QVhlC9O8sRaYcAvQ 
-    - coupon-list.zip: https://1drv.ms/u/s!Asa-selZwiFlg_QT-bBrsoBLq2yrSQ
-    - product-detail.zip: https://1drv.ms/u/s!Asa-selZwiFlg_QUACkViDBOqpII_Q
-    - profiles-list.zip: https://1drv.ms/u/s!Asa-selZwiFlg_QSAl40JUEPiKivDw
-
-    ![BlobContainers](Images/BlobContainers.png)
-
-    ![BlobContainersList](Images/BlobContainersList.png)
-
-    b. Upload the images of each zip folder in the corresponding container.
-
-    ![BlobContainerImages](Images/BlobContainerImages.png)
-
 1. Connecting **kubectl to AKS**
 
     From the terminal type:
@@ -280,9 +259,9 @@ Pre-requisites for this deployment:
 
 1. ARM template is provided so that you can automate the creation of the resources for the website. Select the **Deploy to Azure** button (or right click and select the Open in new tab option) to spin up App Service, Azure Container Registry (ACR).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FTailwindTraders-Website%2Fmaster%2FDeploy%2Fdeployment.json"><img src="https://github.com/Microsoft/TailwindTraders/blob/master/Documents/DemoScripts/Managing%20backend%20with%20Azure%20Kubernetes%20Service%20(AKS)/Images/deploy-to-azure.png" alt="Deploy to Azure"/></a>
+[![Deploy to Azure](Images/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FTailwindTraders-Website%2Fmaster%2FDeploy%2Fdeployment.json)
 
-    ![customtemplate2](Images/customtemplate2.png)
+![customtemplate2](Images/customtemplate2.png)
 
 1. When deploying to Azure pay attention to parameters **User Email** and **Api Base Url**.
 

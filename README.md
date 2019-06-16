@@ -1,9 +1,18 @@
-# Tailwind Traders Reference Apps
+# Tailwind Traders - Sample Reference Applications
+
 We are happy to announce the release of Tailwind Traders. A fictitious retail company showcasing the future of intelligent application experiences. These reference apps are all are powered by the Azure cloud, built with best-in-class tools, and made smarter through data and AI.
 
-This release intends to share a simplified version of the reference sample apps used at Connect(); 2018 Keynotes.
+![Tailwind Traders Logo](Documents/Images/Logo.png)
 
-<img src="Documents/Images/Logo.png" alt="Tailwind Traders Logo"/>
+# New to Microsoft Azure?
+
+You will need an Azure subscription to work with this demo code. You can:
+
+- Open an account for free [Azure subscription](https://azure.microsoft.com/free/). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
+- [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
+- Create an [Azure Student Account](https://azure.microsoft.com/free/students/) and get free credit when you create your account.
+
+Learn more about it with [Microsoft Learn - Introduction to Azure](https://docs.microsoft.com/learn/azure).
 
 # Repositories
 
@@ -33,26 +42,21 @@ You can find the **[demo scripts](Documents/DemoScripts)** that show the power o
 
 # Application Diagram
 
-<img src="Documents/Images/Diagram.png" alt="Tailwind Traders Application Diagram"/>
-
-> BFF = [Backend For Frontend](https://docs.microsoft.com/en-us/azure/architecture/patterns/backends-for-frontends)
+![Tailwind Traders Application Diagram](Documents/Images/Diagram.png)
 
 # Application Screens
 
-<img src="Documents/Images/Website.png" alt="Tailwind Traders Website"/>
-<img src="Documents/Images/Mobile.png" alt="Tailwind Traders Mobile Apps"/>
-<img src="Documents/Images/Rewards.png" alt="Tailwind Traders Rewards"/>
-<img src="Documents/Images/Desktop.png" alt="Tailwind Traders Desktop"/>
+![Tailwind Traders Website](Documents/Images/Website.png)
 
-# Sign Up for Microsoft Azure
+![Tailwind Traders Mobile Apps](Documents/Images/Mobile.png)
 
-You will need an Azure subscription to work with this demo code. You can:
+![Tailwind Traders Rewards](Documents/Images/Rewards.png)
 
-- Open an account for free [Azure subscription](https://azure.com). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
-- [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
-- Create an [Azure student account](https://azure.microsoft.com/free/students/) and get free credit when you create your account.
+![Tailwind Traders Desktop](Documents/Images/Desktop.png)
 
-Learn more about it with [Microsoft Learn - Introduction to Azure](https://docs.microsoft.com/learn/azure).
+# Feedback
+
+[Help us improving this reference applications by providing us your valuable opinion.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8SMkUX-TIVBhIdeQCM_fI1UNEJIUDhKQjE0S1RWNlRJSVNISFNCUlVXSyQlQCN0PWcu)
 
 # Blog posts and videos
 
