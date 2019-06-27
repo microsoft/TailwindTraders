@@ -280,7 +280,7 @@ Pre-requisites for this deployment:
 
     [![Deploy to Azure](Images/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FTailwindTraders-Website%2Fmaster%2FDeploy%2Fdeployment.json)
 
-    ![customtemplate2](Images/customtemplate2.png)
+    ![customtemplate2](Images/customtemplate3.png)
 
 1. When deploying to Azure pay attention to parameter - **Api Base Url**.
 
@@ -355,7 +355,7 @@ This will copy your _gvalues_ file in `/Deploy/helm` folder with the name `gvalu
 All deployments of Tailwind Traders run under Kubernetes `ttsa` service account. You need to manually create this service account in the `dev` namespace. Type `kubectl apply -f ttsa.yaml -n dev` from inside the `/Deploy/helm` folder.
 
  ```
-        kubectl apply -f helm\ttsa.yaml -n dev
+    kubectl apply -f helm\ttsa.yaml -n dev
  ```
 
 ### Deploy all the APIs to the dev Dev Space
@@ -375,7 +375,7 @@ To deploy, just run `azds up -d -v` from a command line, once in these folders:
 
 Once finished, the `azds list-up` command should list all APIs in root the Dev Space `dev`:
 
-  ![Output of azds list-up showing all APIs running](images/azds-list-up.png)
+  ![Output of azds list-up showing all APIs running](Images/azds-list-up.png)
 
 ### Deploy Web to the dev Dev Space
 
@@ -389,37 +389,37 @@ Just run `azds up -d -v` from a command line in the folder:
 
 The parent `dev` Dev Space is deployed, and ready to be tested. Run `azds list-uris --all` to get all the entry points for all APIs and the web:
 
-  ![Output of azds-list-uris --all command](images/azds-list-uris.png)
+  ![Output of azds-list-uris --all command](Images/azds-list-uris.png)
 
 When deploying on a Dev Space, all services are exposed using an ingress, even though they are internal ones; for easy testing.
 
 Now, grab the URL of the web and paste in your browser:
 
-  ![Web running in Dev Spaces](images/web-on-devspaces.png)
+  ![Web running in Dev Spaces](Images/web-on-devspaces.png)
 
 ### Bug Scenario
 
 Web shows all products "out of stock":
 
-  ![Web showing out of stock](images/web-out-of-stock.png)
+  ![Web showing out of stock](Images/web-out-of-stock.png)
 
 Data seems to be correct in the database, but no matter what product id is passed, stock api always return no stock:
 
-  ![Some curl calls showing any product id is out of stock](images/curl-out-of-stock.png)
+  ![Some curl calls showing any product id is out of stock](Images/curl-out-of-stock.png)
 
 ### Creating a child Dev Space for debugging
 
 Alice is assigned to solve this bug, so she creates a new Dev Space for herself. Type `azds space select` and create a new Dev Space child of `dev` as this new Dev Space has to be a child Dev Space of the `dev` root Dev Space:
 
-  ![Usage of azds space select to create a child Dev Space](images/create-alice-devspace.png)
+  ![Usage of azds space select to create a child Dev Space](Images/create-alice-devspace.png)
 
 Alice can verify that she is in her own Dev Space by typing `azds space list` and checking the `dev/alice` Dev Space is selected (marked with an asterisk):
 
-  ![Output of azds space list showing dev/alice selected](images/azds-space-list.png)
+  ![Output of azds space list showing dev/alice selected](Images/azds-space-list.png)
 
 Great! Alice is in her own Dev Space, so all changes she deploys will be isolated to her and won't affect other developers in the same development environment. Alice gets her own entry points (URIs) to access their own versions of the services. If the service is not deployed in her Dev Space,the service deployed in the parent Dev Space (`dev`) will be used instead. Just like earlier, the command `azds list-uris` shows the URLs of the services. However, since Alice selected her `dev/alice` Dev Space, now she sees her own URIs:
 
-  ![Output of azds-list-uris command for Alice](images/azds-list-uris-alice.png)
+  ![Output of azds-list-uris command for Alice](Images/azds-list-uris-alice.png)
 
 ### Deploy the ttsa service account on her namespace
 
@@ -433,15 +433,15 @@ Great! Alice is in her own Dev Space, so all changes she deploys will be isolate
 
 It's time for Alice to use Visual Studio Code to debug the Task API. Alice goes to the her local repository folder `/Source/Services/Tailwind.Traders.Stock.Api` and opens it with Visual Studio Code. Then selects the command _Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces_ from the _Command Palette_ or (Ctlr+Shift+P):
 
-  ![Launching the command Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces in VS Code](images/vscode-azds-1.png)
+  ![Launching the command Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces in VS Code](Images/vscode-azds-1.png)
 
 Visual Studio Code will ask for the base image to use (select the one based on Azul Zulu):
 
-  ![Selecting base image](images/vscode-azds-2.png)
+  ![Selecting base image](Images/vscode-azds-2.png)
 
 Finally, VS Code will ask for the default port. Choose 8080:
 
-![Entering the port](images/vscode-azds-3.png)
+![Entering the port](Images/vscode-azds-3.png)
 
 Once finished, a `launch.json` and a `tasks.json` file is generated in the `.vscode` directory. Now the debug window of VSCode should have the option "Launch Java program (AZDS)":
 
@@ -453,15 +453,15 @@ Alice uses this option to launch the Tasks API on her own Dev Space. This will t
 
 Visual Studio Code will show a **localhost** address in the status bar:
 
-  ![VS Code Status bar with the localhost address](images/vscode-running-1.png)
+  ![VS Code Status bar with the localhost address](Images/vscode-running-1.png)
 
 Alice can use this address to access the Tasks API **running on her Dev Space**. Don't be confused because of the _localhost_ address. Tasks API is not running in Alice's machine, it is running in AKS, the _localhost_ address is just tunneled. A `azds list-uris` run from command prompt will give the same info:
 
-  ![azds list uris will show localhost address tunneled](images/azds-list-uris-alice-running.png)
+  ![azds list uris will show localhost address tunneled](Images/azds-list-uris-alice-running.png)
 
 For starting her debug session, Alice puts a break point in the file `src/main/java/Tailwind/Traders/Stock/Api/StockController.java` in line where `stock` is checked against `null` in method `StockProduct`:
 
-  ![Alice breakpoint](images/alice-bp.png)
+  ![Alice breakpoint](Images/alice-bp.png)
 
 She now needs to trigger the breakpoint. There are two options:
 
@@ -471,38 +471,38 @@ She now needs to trigger the breakpoint. There are two options:
 Using option 1 is as easy as doing a call with curl to the endpoint `/v1/stock/{product_id}`:
 
 ```
-curl http://localhost:55934/v1/stock/1
+  curl http://localhost:55934/v1/stock/1
 ```
 
 That will trigger the endpoint and the breakpoint should be hit:
 
-  ![Breakpoint hit using curl](images/bp-with-curl.png)
+  ![Breakpoint hit using curl](Images/bp-with-curl.png)
 
 The second option (using the web) shows how Dev Spaces is powerful. **Even though Alice has not deployed the web on her Dev Space**, she gets a new URL to access the web. The command `azds list-uris` gives this new url:
 
-  ![azds list uris will show alice's urls](images/azds-list-uris-alice-running.png)
+  ![azds list uris will show alice's urls](Images/azds-list-uris-alice-running.png)
 
 Note that the URLs starts with `alice.s`. So, Alice can open a web browser and navigate to the URL of the web (`alice.s.dev.ttweb.xxxxxxx`):
 
-  ![Web running in Alice Dev Space](images/alice-web.png)
+  ![Web running in Alice Dev Space](Images/alice-web.png)
 
 She now can use the web, navigate to a product detail **and the breakpoint will be hit**:
 
-  ![Web running in Alice Dev Space and breakpoint hit](images/bp-with-web.png)
+  ![Web running in Alice Dev Space and breakpoint hit](Images/bp-with-web.png)
 
 Now Alice can use the debug tools incorporated with Visual Studio Code to find the error. Seems that some developer left a line commented, and this is the source of the error:
 
-  ![Alice found the error with the debugger](images/error-found.png)
+  ![Alice found the error with the debugger](Images/error-found.png)
 
 Now Alice can stop the debug session and just fix the code by uncommenting the line. Then **she can start a new debug session just to ensure the error is gone**. She doesn’t need to re-build the project, starting a new session will synchronize the file she changed locally and rebuild the API in her Dev Space.
 
 Once the new debug session is started, Alice just refreshes the browser window to check if the error has disappeared:
 
-  ![Debugger shows the error is fixed](images/error-fixed.png)
+  ![Debugger shows the error is fixed](Images/error-fixed.png)
 
 Just to recap, Alice did all this debug session **without impacting any other developer**. The web now works as expected in her Dev Space while it is still failing in the `dev` namespace:
 
-  ![Web on Dev Space dev fails, Web on Alice is OK](images/web-alice-vs-dev.png)
+  ![Web on Dev Space dev fails, Web on Alice is OK](Images/web-alice-vs-dev.png)
 
 Alice can now commit the code and close the bug! CD pipeline will deploy the updated version of _Tasks API_ to the `dev` Dev Space, and all developers will get the fix.
 
