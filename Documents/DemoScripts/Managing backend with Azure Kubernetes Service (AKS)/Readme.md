@@ -38,7 +38,7 @@ Pre-requisites for this deployment:
     ```
     Provide a non-existent **Resource Group** name, valid **Location** as input parameters. 
 
-    Make a note of the output details of **Service Principal** and **Db** since it is required in the further exercises.
+    Make a note of the output details of **Service Principal**, **Db Admin** and **Db Password** since it is required in the further exercises.
 
 1. Connecting **kubectl to AKS**
 
@@ -57,6 +57,8 @@ Pre-requisites for this deployment:
     To install Helm, refer to its [installation page](https://docs.helm.sh/using_helm/#installing-helm). Once Helm is installed, _Tiller_ must be deployed on the cluster. For deploying _Tiller_, navigate to the `/Deploy/` under TailwindTraders-Backend repository and run the `add-tiller.sh` (from Bash) or the `Add-Tiller.ps1` (from PowerShell).
 
     Once installed, helm commands like `helm ls` should work without any error.
+    
+    If you face an error - "Error: could not find a ready tiller pod", then run **helm init --upgrade** to upgrade tiller and execute the `helm ls` command again.
 
 1. Configuring **services** with auto generation of _gvalues file
 
@@ -79,6 +81,8 @@ Pre-requisites for this deployment:
     * `-gvaluesTemplate`: Template of the _gvalues_ file to use. The parameter defaults to the `/Deploy/helm/gvalues.template` which is the only template provided.
 
     The script checks that all needed resources exist in the resource group. If some resource is missing or there is an unexpected resource, the script exits.
+    
+    Once the file is generated in the `/Deploy/helm/__values/`folder, copy the file outside the `__values` folder and rename it as  `gvalues.yaml`.
 
     >**Note:** If you don't want to edit the `helm/gvalues.yaml` file you can create a copy and name it whatever you want (i. e. `helm/gvalues-prod1.yaml`). This allows you to maintain various environments. Note that **this file contains secrets so do not push into the repo!**, you can put the file in `/Deploy/helm/__values/` folder which is added to `.gitignore` to avoid accidental pushes.
 
@@ -88,7 +92,7 @@ Pre-requisites for this deployment:
 
     Before deploying anything on AKS, a secret must be installed to allow AKS to connect to the ACR through a Kubernetes' service account. 
 
-    To do so from a Bash terminal run the file `images/create-secret.sh` with following parameters:
+    To do so from a Bash terminal run the file `./create-secret.sh` with following parameters:
 
     * `-g <group>` Resource group where AKS is
     * `--acr-name <name>` Name of the ACR
@@ -97,7 +101,7 @@ Pre-requisites for this deployment:
 
     Please, note that the Service principal must be already exist. To create a service principal, you can run the command `az ad sp create-for-rbac`.
 
-    If using PowerShell, run the `images/Create-Secret.ps1` with following parameters:
+    If using PowerShell, run the `.\Create-Secret.ps1` with following parameters:
 
     * `-resourceGroup <group>` Resource group where AKS is
     * `-acrName <name>` Name of the ACR
@@ -132,17 +136,20 @@ Pre-requisites for this deployment:
      .\Build-Push.ps1 -resourceGroup my-rg -dockerTag v1 -acrName my-acr
     ```
 
+    It might take around 10 minutes to complete the build process.
+    
     To just push the images (without building them before):
 
      ```
        .\Build-Push.ps1 -resourceGroup my-rg -dockerTag v1 -acrName my-acr -dockerBuild $false
      ```
-
+     
+     
 1. Deploying **Services**
 
     >**Note**: If you want to add SSL/TLS support on the cluster (needed to use https on the web) please read following section **before installing the backend**.
 
-    To deploy the services from a Bash terminal, run the `images/deploy-images-aks.sh` script with the following parameters:
+    To deploy the services from a Bash terminal, run the `./deploy-images-aks.sh` script with the following parameters:
 
     * `-n <name>` Name of the deployment. Defaults to `my-tt`
     * `--aks-name <name>` Name of the AKS
@@ -183,8 +190,8 @@ Pre-requisites for this deployment:
 
     To deploy the needed images on the Azure Storage account just run the `/Deploy/Deploy-Pictures-Azure.ps1` script, with following parameters:
 
-        resourceGroup <name>: Resource group where storage is created
-        storageName <name>: Name of the storage account
+        -resourceGroup <name>: Resource group where storage is created
+        -storageName <name>: Name of the storage account
 
     Script will create blob containers and copy the images (located in `/Deploy/tt-images` folder) to the storage account.
 
@@ -317,22 +324,31 @@ To enable Azure Dev Spaces on your AKS cluster, use the use-dev-spaces command t
 ```cmd
     $ az aks use-dev-spaces -g <<ResourceGroup>> -n <<AKS>>
 
-    'An Azure Dev Spaces Controller' will be created that targets resource '<<AKS>>' in resource group '<<ResourceGroup>>'. Continue? (y/N): y
+    Installing Dev Spaces commands...
+A separate window will open to guide you through the installation process.
+An Azure Dev Spaces Controller will be created that targets resource '<<AKS>>' in resource group '<<ResourceGroup>>'. Continue? (y/N): y
 
-    Creating and selecting Azure Dev Spaces Controller '<<AKS>>' in resource group '<<ResourceGroup>>' that targets resource '<<AKS>>' in resource group '<<ResourceGroup>>'...2m 24s
+Creating and selecting Azure Dev Spaces Controller '<<AKS>>' in resource group '<<ResourceGroup>>' that targets resource '<<AKS>>' in resource group '<<ResourceGroup>>'...2m 40s
 
-    Select a Dev Space or Kubernetes namespace to use as a Dev Space.
-    [1] default
-    Type a number or a new name: dev
+Select a dev space or Kubernetes namespace to use as a dev space.
+ [1] default
+Type a number or a new name: dev
 
-    Selecting Dev Space 'dev'...<1s
+Dev space 'dev' does not exist and will be created.
 
-    Managed Kubernetes cluster '<<AKS>>' in resource group '<<ResourceGroup>>' is ready for development in dev space 'dev'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
+Select a parent dev space or Kubernetes namespace to use as a parent dev space.
+ [0] <none>
+ [1] default
+Type a number: 0
+
+Creating and selecting dev space 'dev'...1s
+
+Managed Kubernetes cluster '<<AKS>>' in resource group '<<ResourceGroup>>' is ready for development in dev space 'dev'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
 ### Introduce a bug in the stock API
 
-You will take on the role of *Alice*, a developer who is trying to reproduce a bug in stock API that makes the API return all products out of stock.  
+Let's take on the role of *Alice*, a developer who is trying to reproduce a bug in stock API that makes the API return all products out of stock.  
 
 In this scenario, comment a particular line of code in your local repository under `Source/Services/Tailwind.Traders.Stock.Api/src/main/java/Tailwind/Traders/Stock/Api/StockController.java`. You don’t have to compile after commenting the line of code.
 
@@ -340,9 +356,9 @@ In this scenario, comment a particular line of code in your local repository und
       response.setProductStock(stock.getStockCount());
  ```
 
-### Prepare source for Dev spaces
+### Prepare source for Dev Spaces
 
-Deploy using Dev spaces is done using the same Helm charts (located in `/Deploy/helm`) used in the standard deployment. You need to have a valid _gvalues.yaml_ configuration file created. From a PowerShell command line in folder `/Source` type:
+Deploy using Dev Spaces is done using the same Helm charts (located in `/Deploy/helm`) used in the standard deployment. You need to have a valid _gvalues.yaml_ configuration file created. From a PowerShell command line in folder `/Source` type:
 
  ```ps
     .\prepare-devspaces.ps1 -file <path-to-your-gvalues-file>
@@ -445,7 +461,7 @@ Finally, VS Code will ask for the default port. Choose 8080:
 
 Once finished, a `launch.json` and a `tasks.json` file is generated in the `.vscode` directory. Now the debug window of VSCode should have the option "Launch Java program (AZDS)":
 
-![Launch option for AZDS in VS Code Debug Pane](images/vscode-launch.png)
+![Launch option for AZDS in VS Code Debug Pane](Images/vscode-launch.png)
 
 >**Note** If there is any problem in performing these steps, **just delete the `.vscode` folder and rename the folder `.generated.vscode` to `.vscode`**. The `.generated.vscode` folder contains the final scripts that VS Code needs for using Dev Spaces.
 
