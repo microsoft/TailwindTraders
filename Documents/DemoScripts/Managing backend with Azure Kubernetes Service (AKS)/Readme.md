@@ -427,17 +427,17 @@ Great! Alice is in her own Dev Space, so all changes she deploys will be isolate
 
  ```
     kubectl apply -f Deploy\helm\ttsa.yaml -n alice
-    ```
+ ```
 
 ### Debugging the Tasks API using Visual Studio Code
 
 It's time for Alice to use Visual Studio Code to debug the Task API. Alice goes to the her local repository folder `/Source/Services/Tailwind.Traders.Stock.Api` and opens it with Visual Studio Code. Then selects the command _Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces_ from the _Command Palette_ or (Ctlr+Shift+P):
 
- ![Launching the command Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces in VS Code](images/vscode-azds-1.png)
+  ![Launching the command Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces in VS Code](images/vscode-azds-1.png)
 
 Visual Studio Code will ask for the base image to use (select the one based on Azul Zulu):
 
- ![Selecting base image](images/vscode-azds-2.png)
+  ![Selecting base image](images/vscode-azds-2.png)
 
 Finally, VS Code will ask for the default port. Choose 8080:
 
