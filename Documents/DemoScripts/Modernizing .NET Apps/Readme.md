@@ -180,10 +180,14 @@ Your account code is ['AccountCode']`
 1. Using the **Dynamic Content** from the database enter **email** for **To** field, fill the **Subject** as *Tailwind Traders Rewards* and choose **Translated text** from dynamic content for **Body**.
 
     ![Email Config](Images/editemail.png)
+    
+    > Instead of retrieving the database data for email-id, you can populate the **To** field with your email-id to receive an email in real time. 
 
 1. Under **If false**, let's add an action **Send an email** from the search bar and select the **Send and Email Office 365 Outlook** action to configure and send the email. Using the **Dynamic Content** from the database enter **email** for **To** field, fill the **Subject** as *Tailwind Traders Rewards* and use *Dynamic Content* to write the email **Body** as shown in the picture.
 
     ![False Condition](Images/falseconditionmail.png)
+    
+    > Instead of retrieving the database data for email-id, you can populate the **To** field with your email-id to actually receive an email in real time. 
 
 1. Click to save the Logic app work flow and return to the website. Now, click the **Enroll in loyalty program** checkbox. Now, the corresponding records are going to be updated in the database which will essentially flip a flag that enrolls the customer to the loyalty program and sends them a welcome email in the respective language.
 
