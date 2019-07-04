@@ -12,6 +12,8 @@ A developer benefits the following key takeaways:
 
 1. You will need Visual Studio 2017 or later.
 
+1. You will need the .NET Framework 3.5 installed.
+
 1. You will need an Azure Subscription in order to follow this demo script.
 
 1. [Tailwind Traders Rewards source code](https://github.com/Microsoft/TailwindTraders-Rewards)
@@ -47,6 +49,14 @@ When the local infrastructure is outgrowing on which the application is hosted, 
 1. Click **Configure** in the Publish window to check the database connection strings. The database connection strings can be populated by clicking the ellipsis button and entering the SQL database details. On clicking publish, the web config file will be updated with this database string which is pointing to an **SQL Azure database**.  When the application is debugged locally, its the local IIS and the local SQL server which acts but when the app is published, this is going to be swapped with the created Azure services.
 
     ![DB Connection strings](Images/dbconnstrings.png)
+
+    Now you will need to tell the deployment flow to do the initial data seeding. Click the **Update database** checkbox and in **Configure database updates**.
+
+    ![Check Update database](Images/update-db.png)
+
+    In the modal window, click in **Add SQL Script** and select the `Source\SQLScripts\CreateTablesAndPopulate.sql` script and close.
+
+    ![Select seeding script](Images/select-sql-script.png)
 
 1. Click **Publish** to deploy the application to Azure App Service and the back-end to SQL Azure database.
 
