@@ -56,7 +56,7 @@ In this demo, we'll be illustrating the integration and automation benefits of A
 
 Now that Azure Pipelines has been installed and configured, we can start building the pipelines but we will need to select a project where the pipeline will be saved. You may select an existing or create a new Azure DevOps project to hold and run the pipelines we need for continuous integration and continuous delivery. The first thing we'll do is to create a CI pipeline.
 
-1. Select the organization and Azure DevOps project that you created using the Azure DevOps Demo Generator. Click **Create a new pipeline** under Builds. Choose **GitHub(YAML)** as the code repository and follow the next steps to select the forked repository in your GitHub account.
+1. Select the organization and Azure DevOps project that you created using the Azure DevOps Demo Generator. Click **Create a new pipeline** under Builds. Choose **GitHub(YAML)** as the code repository and follow the next steps for authorization.
 
     ![Choose code repo](Images/coderepo.png)
 
@@ -70,7 +70,7 @@ Now that Azure Pipelines has been installed and configured, we can start buildin
 
     ![Starter_pipeline](Images/Starter_pipeline.png)
 
-1. Replace the default template with the below YAML snippet.
+1. Replace the default template with the below YAML snippet and substitute variables section with relevant values below.
 
     ```yaml
     variables:
@@ -127,7 +127,7 @@ Now that Azure Pipelines has been installed and configured, we can start buildin
   
     ![job-summary](Images/job_summary.png)
 
-## Task 3: Adding a build status badge
+### Adding a build status badge
 
 An important sign for a quality project is its build status badge. When someone finds a project that has a badge indicating that the project is currently in a successful build state, it's a sign that the project is maintained effectively.
 
@@ -180,21 +180,17 @@ An important sign for a quality project is its build status badge. When someone 
 
    ![badge_status](Images/badge_status.png)
 
-## Task 4: Configuring the Azure Continuous Delivery Pipeline
+### Configuring the Azure Continuous Delivery Pipeline
 
 Now that the build pipeline is completed we can turn our attention to creating a release pipeline.
 
 Like the build templates, there are many packaged options available that cover common deployment scenarios, such as publishing to Azure. But to illustrate how flexible and productive the experience is, we will build this pipeline from an empty template.
 
-1. Select **Releases**.
+1. Select **Releases**. You will see 2 release pipelines already created by the Demo Generator. But, let's go ahead and define our own pipeline.
 
     ![releases](Images/releases.png)
 
-1. Click **New pipeline**.
-
-    ![new-pipeline](Images/new-pipeline.png)
-
-1. Click **Empty job**.
+1. Click **New pipeline** and click **Empty job**.
 
     ![select-template](Images/select-template.png)
 
@@ -253,11 +249,11 @@ Like the build templates, there are many packaged options available that cover c
 
     ![add-task](Images/add-task.png)
 
-1. Search for **azure cli** and add an **Azure CLI** task.
+1. Search for **azure cli** and add the **Azure CLI** task.
 
     ![az-cli-task](Images/az-cli-task.png)
 
-1. Select the newly created task. Select and authorize an Azure subscription. Note you will need to disable popup-blockers to sign in to Azure for authorization. If the pop-up window hangs, please close and try it again.
+1. Select the newly created task and authorize your Azure subscription. Note you will need to disable popup-blockers to sign in to Azure for authorization. If the pop-up window hangs, please close and try it again.
 
     ![authorize.png](Images/authorize.png)
 
