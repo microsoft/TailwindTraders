@@ -1,14 +1,20 @@
 # Integrating Azure Pipelines, GitHub, and Azure Boards
 
+## Overview
+
+GitHub hosts over 100 million repositories containing applications of all shapes and sizes. But GitHub is just a start—those applications still need to get built, released, and managed to reach their full potential.
+Azure Pipelines enables you to continuously build, test, and deploy to any platform or cloud. It has cloud-hosted agents for Linux, macOS, and Windows; powerful workflows with native container support; and flexible deployments to Kubernetes, VMs, and serverless environments.
+Azure Pipelines provides unlimited CI/CD minutes and 10 parallel jobs to every GitHub open source project for free. All open source projects run on the same infrastructure that our paying customers use. That means you'll have the same fast performance and high quality of service. Many of the top open source projects are already using Azure Pipelines for CI/CD, such as Atom, CPython, Pipenv, Tox, Visual Studio Code, and TypeScript---and the list is growing every day.
+In addition to Azure Pipelines, GitHub users can also benefit from Azure Boards, a set of features that enable you to plan, track, and discuss work across your teams using Kanban boards, backlogs, team dashboards, and custom reporting. You can link GitHub activities from Azure Boards by mentioning them in commits and pull requests, and even automate the state transition of linked work items when pull requests are approved.
+In this demo, you'll see how easy it is to set up Azure Pipelines and Azure Boards with your GitHub projects and how you can start seeing benefits immediately.
+
 ## Key Takeaways
 
 The key takeaways of the demo are:
 
-* **DevOps** unifies people, process and technology, automates software releases for delivering continuous value to the users. Microsoft provides the only comprehensive DevOps solution that spans from development to project management to deployment to operations.
-
-* **Azure DevOps** provides a fully integrated set of enterprise DevOps services covering the entire DevOps lifecycle.
-
-* **Azure Boards** provides a wealth of project management functionality . By connecting Azure Boards with GitHub repositories, teams can take advantage of the rich project management capabilities that spans Kanban boards, backlogs, team dashboards, and custom reporting
+- Microsoft provides the only comprehensive DevOps solution that spans from development to project management to deployment to operations.
+- It doesn't matter what technologies of processes you're using---even setting up a Node.js solution on GitHub to deploy to a Linux container that connects to a Cosmos DB is a seamless, straightforward experience.
+- Azure offers a practical approach to automation at every step of the DevOps lifecycle that enables companies to focus their efforts on creating business value.
 
 ## Before you begin
 
@@ -22,9 +28,24 @@ The key takeaways of the demo are:
 
 1. You will need the [Tailwind Traders Website source code](https://github.com/Microsoft/TailwindTraders-Website).
 
+1. Git installed from https://git-scm.com/downloads.
+
+1. Visual Studio Code installed from https://code.visualstudio.com.
+
+1. Azure Pipelines extension for Visual Studio Code installed from https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines.
+
+1. GitHub Pull Requests extension for Visual Studio Code installed from https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github.
+
+1. Microsoft Teams.
+
+### Demo Scenario
+
+In this demo, we'll be illustrating the integration and automation benefits of Azure DevOps. *Tailwind Traders* is a fictitious retail company showcasing the future of intelligent application experiences. These reference apps are all are powered by the Azure cloud, built with best-in-class tools, and made smarter through data and AI. They want to implement continuous integration and continuous delivery pipelines so that they can quickly update their public services and take advantage of the full benefits of DevOps and the cloud.
+
+
 ## Walkthrough: Integrating GitHub with Azure Pipelines
 
-### Installing Azure Pipelines and configuring CI pipeline
+### Installing Azure Pipelines from Marketplace 
 
 1. Navigate to the **GitHub Market Place**. The GitHub Marketplace provides a variety of tools from Microsoft and 3rd parties that help you extend your project workflows. Click Marketplace from the top navigation to visit it.
 
@@ -54,37 +75,21 @@ The key takeaways of the demo are:
 
     ![Azure Pipelines Access](Images/pipelinesaccess.png)
 
-1. You will be directed to the **New pipeline** page of the chosen Azure DevOps project. However, since Azure DevOps Demo Generator has already provisioned the project along with Azure Pipelines, let us use them.
+### Configuring a YAML CI pipeline
 
-    ![New Pipeline Page](Images/newpipelinepage.png)
+Now that Azure Pipelines has been installed and configured, we can start building the pipelines but we will need to select a project where the pipeline will be saved. You may select the previously created Azure DevOps project from Demo Generator to hold and run the pipelines we need for continuous integration and continuous delivery. Even though there is a vNext pipeline already available, you'll create a *YAML* CI pipeline.
 
-1. Navigate to **Pipelines –> Builds**. Select **Website-CI** and click **Edit**.
-
-    ![](Images/website-ci-edit.png)
-
-1. Your build pipeline will look like below. With this pipeline, we are creating following Azure resources for the application deployment.
-    
-      - Azure Container Registry
-      - Web App for Containers
-
-    Then we will build the application Docker image and push the image to ACR provisioned.
-
-   ![](Images/ci-definition.png)
-
-1. In the **Tasks**, choose **Get sources --> GitHub**. 
-
-    ![Choose GitHub Source](Images/choosegithubsource.png)
+Every build pipeline is simply a set of tasks. Whether it's copying files,compiling source, or publishing artifacts, the existing library of tasks covers the vast majority of scenarios. You can even create your own if you have specialized needs not already covered. You're going to use YAML, a markup syntax that lends itself well to describing the build pipeline. 
 
 1. Click the ellipsis **...** button under *Repository* and choose the forked GitHub repository.
 
     ![Choose Github repo](Images/choosegithubrepo.png)
 
-    ![Repository](Images/repoellipsis.png)
+    > Every build pipeline is simply a set of tasks. Whether it's copying files, compiling source, or publishing artifacts, the existing library of tasks covers the vast majority of scenarios. You can even create your own if you have specialized needs not already covered. We're going to use YAML, a markup syntax that lends itself well to describing the build pipeline. Note that the Node.js pipeline as a starting point based on an analysis of our source project. We'll replace the contents with the final YAML required for our project.
 
-1. Select [Azure Resource Group Deployment](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceGroupDeploymentV2/README.md) task.
-This task is used to create or update a resource group in Azure using the [Azure Resource Manager templates](https://azure.microsoft.com/en-in/documentation/articles/resource-group-template-deploy/). To deploy to Azure, an Azure subscription has to be linked to Azure Pipelines. Select your **Azure subscription** from Azure subscription dropdown. Click **Authorize**. If your subscription is not listed or to specify an existing service principal, follow the [Service Principal creation](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=vsts) instructions.
+1. Select the recommended template.
 
-    ![](Images/ARMdeployment.png)
+    ![Recommended Template](Images/template.png)
 
 1. Select [ARM Outputs](https://github.com/keesschollaart81/vsts-arm-outputs) task.  This task enables you to use the ARM Deployment outputs in your Azure Pipelines. Select your **Azure subscription** from Azure subscription dropdown.
 
@@ -206,13 +211,23 @@ By connecting Azure Boards with GitHub repositories, you enable linking between 
 
     ![Web App](Images/tailwindtraderapp.png)
 
-1. Create a branch **FixBug** in your GitHub account. 
+1. Open an instance of **Visual Studio Code**. 
 
-    ![Create branch](Images/createbranch.png)
+    > We’ll start off by creating a new branch for this task. The work itself is pretty straightforward. We just need to locate the place where airports are provided to the user experience and make sure they’re being sorted by city name.
 
-1. Return to Visual Studio, open the solution which is inside the new branch **FixBug**. Let's go and rephrase the sentence.
+1.	Click the **master** branch at the bottom of the window.
 
-1. In the *Solution Explorer*, open the file **translation.json** under *Tailwind.Traders.Web\ClientApp\src\assets\locales\translation.json*. 
+    ![Master branch](Images/masterbranchnew.png)
+
+1.	From the top of the screen, click **Create new branch**.
+
+    ![New branch](Images/createnewbranch.png)
+
+1. Create a branch **Rephrase-Title** in your GitHub account. 
+
+    ![Create branch](Images/newbranchname.png)
+
+1. In the *Explorer* tab of **Code**, open the file **ClientApp\src\assets\locales\translation.json**. 
 
     ![Open JSON](Images/openfile.png)
 
@@ -220,11 +235,18 @@ By connecting Azure Boards with GitHub repositories, you enable linking between 
 
     ![Fix Typo](Images/fixtypo.png)
 
-1. Click **Changes** in the *Team Explorer*, provide a commit message **Fixes AB##WorkItemID** and choose **Commit Staged and Push**. 
+    > We'll commit it using a comment that includes special syntax to link it to the Azure Boards task we saw earlier. Now this commit will become trackable from project management, as long as we include the phrase "Fixes AB#ID".
 
-    ![Commit File](Images/commitchanges.png)
+
+1. Switch to the Source Control tab and enter a commit message of “Changes airport sorting. Fixes AB#2605.”, but replace 2605 with the actual ID of the Azure Boards task. Press Ctrl+Enter and confirm the commit if prompted.
+
+    ![Commit changes](Images/commitcode.png)
 
     > In this case, we're inheriting the title from the commit, but having the pull request mention "Fixes ##ID" will link and complete the target work item when the pull request is merged. The syntax used is **Fixes AB#[Work Item ID]** to create a link and update the state automatically when the changes reach the **master** branch. 
+
+1. Click the **Publish Changes** button at the bottom of the screen.
+
+    ![Publish Changes](Images/publishchanges.png)
 
 1. When the push has completed, return to the GitHub browser tab. With the commit pushed, we'll create a pull request to drive those changes back into the master branch.
 
@@ -232,28 +254,28 @@ By connecting Azure Boards with GitHub repositories, you enable linking between 
 
     ![Compare & Pull request](Images/compare-pr.png)
 
-1. Change the **base fork** to point at your project. By default it points at the original **Microsoft** repo, so be sure to change it.
+1. Change the **base fork** to point at your project. By default, it points at the original **Microsoft** repo, so be sure to change it.
 
     ![base fork](Images/basefork.png)
 
 1. The title should initialize to the commit message entered earlier. Click **Create pull request**.
 
-1. Return to Visual Studio. Under **Team Explorer**, click **Pull Requests**. Choose your GitHub repository if required to see the PR. Double-click the previously created Pull Request. You should see all details related to that pull request like the **status, Description, Reviewers(if any), Changes**.
+1. Return to Visual Studio Code. Now we’ll switch to the other side of the pull request and take on the role of reviewer in Visual Studio Code. We can use Visual Studio Code to check out the pull request, analyze changes, and comment. Assuming we trust the fix, we can merge the pull request to update master and kick off the CI/CD.
+
+1. Under **GitHub Pull Requests | All**, right-click the pull request and select **Checkout Pull Request**.
 
     ![PR Details](Images/prdetails.png)
 
-1. Right-click the **translation.json** file and choose **View Changes** to view the file in a diff mode.
+1. Expand the Changes in **Pull Request** tree. Select the **Description** from under the original pull request. If you don't see the **Description** option, click the **Pull Request #** at the bottom of the screen and review the details of the PR. 
 
-    ![File Diff](Images/filediff.png)
-    ![File Diff Mode](Images/filediff1.png)
+    ![View PR](Images/checkoutpr.png)
 
-1. Click the **View on GitHub** to open the pull request on the browser. Click **Merge pull request**. 
 
-    ![View on GitHub](Images/viewongithub.png)
+1. Click **Merge Pull Request** and confirm the merge.
 
-1. On the browser, click **Merge pull request** to merge the changes to the **master** branch.
+    ![Merge PR](Images/mergeprnew.png)
 
-    ![Merge PR](Images/mergepr.png)
+1. Once the deployment works its way through build and release, we can confirm the new functionality. Follow the CI/CD pipeline through to completion. Refresh the web app site to view the changes.
 
 1. To confirm if the change shows up correctly, trigger the CI and then CD pipeline configured earlier. Once it completes, refresh the web app and confirm if you are able to see the changes.
 
@@ -263,6 +285,6 @@ By connecting Azure Boards with GitHub repositories, you enable linking between 
 
     ![Closed Bug](Images/resolvedbug.png)
 
-1. The commit and pull request information should now be visible under the **Development** tab in the Bug work item.
+1. The commit and pull request information should now be visible now with the click of the **GitHub** icon in the Bug workitem card.
 
     ![Commit Info](Images/commitinfo.png)
