@@ -1,10 +1,10 @@
-# Integrating Azure Pipelines, GitHub, and Azure Boards
+# Integrating Azure DevOps, Microsoft Teams and GitHub
 
 ## Overview
 
 GitHub hosts over 100 million repositories containing applications of all shapes and sizes. But GitHub is just a start—those applications still need to get built, released, and managed to reach their full potential.
-Azure Pipelines enables you to continuously build, test, and deploy to any platform or cloud. It has cloud-hosted agents for Linux, macOS, and Windows; powerful workflows with native container support; and flexible deployments to Kubernetes, VMs, and serverless environments.
-Azure Pipelines provides unlimited CI/CD minutes and 10 parallel jobs to every GitHub open source project for free. All open source projects run on the same infrastructure that our paying customers use. That means you'll have the same fast performance and high quality of service. Many of the top open source projects are already using Azure Pipelines for CI/CD, such as Atom, CPython, Pipenv, Tox, Visual Studio Code, and TypeScript---and the list is growing every day.
+Azure Pipelines enables you to continuously build, test, and deploy to any platform or cloud. It has cloud-hosted agents for Linux, macOS, and Windows; powerful workflows with native container support; and flexible deployments to Kubernetes, VMs, and serverless environments. Azure Pipelines provides unlimited CI/CD minutes and 10 parallel jobs to every GitHub open source project for free. All open source projects run on the same infrastructure that our paying customers use. That means you'll have the same fast performance and high quality of service. Many of the top open source projects are already using Azure Pipelines for CI/CD, such as Atom, CPython, Pipenv, Tox, Visual Studio Code, and TypeScript with the list that is growing every day.
+
 In addition to Azure Pipelines, GitHub users can also benefit from Azure Boards, a set of features that enable you to plan, track, and discuss work across your teams using Kanban boards, backlogs, team dashboards, and custom reporting. You can link GitHub activities from Azure Boards by mentioning them in commits and pull requests, and even automate the state transition of linked work items when pull requests are approved.
 In this demo, you'll see how easy it is to set up Azure Pipelines and Azure Boards with your GitHub projects and how you can start seeing benefits immediately.
 
@@ -13,7 +13,7 @@ In this demo, you'll see how easy it is to set up Azure Pipelines and Azure Boar
 The key takeaways of the demo are:
 
 - Microsoft provides the only comprehensive DevOps solution that spans from development to project management to deployment to operations.
-- It doesn't matter what technologies of processes you're using---even setting up a Node.js solution on GitHub to deploy to a Linux container that connects to a Cosmos DB is a seamless, straightforward experience.
+- It doesn't matter what technologies or processes you're using- even setting up a Node.js solution on GitHub to deploy to a Linux container that connects to a Cosmos DB is a seamless, straightforward experience.
 - Azure offers a practical approach to automation at every step of the DevOps lifecycle that enables companies to focus their efforts on creating business value.
 
 ## Before you begin
@@ -52,11 +52,78 @@ In this demo, we'll be illustrating the integration and automation benefits of A
 
 ## Walkthrough: Integrating GitHub with Azure Pipelines
 
+### Configuring Service Endpoint in Azure DevOps
+
+In order to interact with Azure, you'll need to create a Service Endpoint in Azure DevOps. This endpoint includes the authentication information required to deploy to Azure.
+
+1. Install the Azure CLI 2.0 if it is not already installed by following the steps here https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest based on your environment.
+
+1. Once Azure CLI 2.0 is installed, open Azure CLI 2.0 and log into Azure by running the below command and following the prompts
+
+    > az login
+
+1. Create a Service Principal by running the command, the output should be similar to the screenshot below.
+
+    > az ad sp create-for-rbac --name TTapp --password Pa$$w0rd01
+
+    ![Service Principal](Images/serviceprincipal.png)
+
+1. You will need the below three values from the Service Principal account to be able to successfully create the Service Endpoint in Azure DevOps, you should note them now for use later.
+
+    - Tenant ID
+    - Service Principal Key (also referred to as Password)
+    - Service Principal Client ID (referred to as App ID)
+
+
+1. Create an **Azure Service Endpoint** by clicking on the **Project Settings** icon in the Azure DevOps Portal, select **Service connections** and then **New Service Endpoint** and selecting **Azure Resource Manager** from the drop down list.
+
+    ![New ARM](Images/service_connection.png)
+
+1. In the **Add an Azure Resource Manager Service connection** dialog, click the **use the full version of the service connection dialog** link. Provide the required details and copy the values from the above created Service Principal.
+
+    ![Full version Endpoint](Images/full_version_service.png)
+
+    ![Add Service Endpoint](Images/service_principal_authentication.png)
+
+1. Fill in the fields required as per the information you obtained earlier when creating your SP, click Verify connection and ensure you can successfully verify the connection to Azure. Finally, click **OK**.
+
+    ![Validate details](Images/verify_connection.png)
+
 ### Configuring the Azure Continuous Integration Pipeline
 
 Now that Azure Pipelines has been installed and configured, we can start building the pipelines but we will need to select a project where the pipeline will be saved. You may select an existing or create a new Azure DevOps project to hold and run the pipelines we need for continuous integration and continuous delivery. The first thing we'll do is to create a CI pipeline.
 
-1. Select the organization and Azure DevOps project that you created using the Azure DevOps Demo Generator. Click **Create a new pipeline** under Builds. Choose **GitHub(YAML)** as the code repository and follow the next steps for authorization.
+1. Navigate to the **GitHub Market Place**. The GitHub Marketplace provides a variety of tools from Microsoft and 3rd parties that help you extend your project workflows. Click Marketplace from the top navigation to visit it.
+
+    ![GitHub Marketplace](Images/githubmarket.png)
+
+1. Search for **pipelines** and select **Azure Pipelines**.
+
+    ![Search Azure Pipelines](Images/azpipelineresult.png)
+
+1. The Azure Pipelines offers unlimited build minutes with 10 free parallel jobs for public repositories, and 1800 build minutes per month with 1 parallel job if you’re using a private repository. Click **Install it for free** under *Pricing and Setup* towards the bottom of the page.
+
+    ![Install Pipelines](Images/installpipelines.png)
+
+1. If you have multiple GitHub accounts, select the one you forked the Website to from the **Switch billing account** dropdown.
+
+    ![Switch account](Images/switchaccount.png)
+
+1. Click **Complete order and begin installation**.
+
+    ![completeorder](Images/completeorder.png)
+
+1. You have the option to specify repositories to include, but for the purposes of this demo, just include all of them. Note that Azure DevOps requires the listed set of permissions to fulfill its services. Click **Install**.
+
+    ![Choose Repo](Images/chooserepo.png)
+
+1. You may be prompted to confirm your GitHub password to continue and also be prompted to log in to your Microsoft account. Make sure you’re logged into the one associated with your Azure DevOps account. Next, you may need to choose the Azure DevOps account and project for which Azure Pipelines need access.
+
+    ![Azure Pipelines Access](Images/pipelinesaccess.png)
+
+1. Select the organization and Azure DevOps project that you created using the Azure DevOps Demo Generator. You will first create an Azure connection which will be used in the Pipelines.
+
+1. Click **Create a new pipeline** under Builds. Choose **GitHub(YAML)** as the code repository and follow the next steps for authorization.
 
     ![Choose code repo](Images/coderepo.png)
 
@@ -123,7 +190,15 @@ Now that Azure Pipelines has been installed and configured, we can start buildin
 
     ![save-and-run1](Images/save_and_run1.png)
 
-1. Follow the build through to completion.
+1. You will see an error - **Authorization failed**. Click the **Authorize resources** button to authorize the endpoint connection.
+
+    ![Authorization](Images/authorizing_error.png)
+
+1. Once the authorization succeeds, you will see a message as in the screenshot.
+
+    ![Authorization status](Images/resources_authorized.png)
+
+1. Click **Run** to start the build process. Follow the build through completion. 
   
     ![job-summary](Images/job_summary.png)
 
@@ -361,8 +436,6 @@ By connecting Azure Boards with GitHub repositories, you enable linking between 
 
 1. Open an instance of **Visual Studio Code**. 
 
-    > We’ll start off by creating a new branch for this task. The work itself is pretty straightforward. We just need to locate the place where airports are provided to the user experience and make sure they’re being sorted by city name.
-
 1.	Click the **master** branch at the bottom of the window.
 
     ![Master branch](Images/masterbranchnew.png)
@@ -386,7 +459,7 @@ By connecting Azure Boards with GitHub repositories, you enable linking between 
     > We'll commit it using a comment that includes special syntax to link it to the Azure Boards task we saw earlier. Now this commit will become trackable from project management, as long as we include the phrase "Fixes AB#ID".
 
 
-1. Switch to the Source Control tab and enter a commit message of “Changes airport sorting. Fixes AB#2605.”, but replace 2605 with the actual ID of the Azure Boards task. Press Ctrl+Enter and confirm the commit if prompted.
+1. Switch to the Source Control tab and enter a commit message of “Rephrased title. Fixes AB#2605.”, but replace 2605 with the actual ID of the Azure Boards task. Press Ctrl+Enter and confirm the commit if prompted.
 
     ![Commit changes](Images/commitcode.png)
 
