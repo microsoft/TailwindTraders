@@ -24,7 +24,7 @@ The key takeaways of the demo are:
 
 1. An [Azure DevOps](https://dev.azure.com) account.
 
-1. Provision the **Tailwind Traders** project to your Azure DevOps organization with the [Azure DevOps Demo Generator](https://azuredevopsdemogenerator.azurewebsites.net/?name=tailwind%20traders). Select the checkbox -*Yes, I want to fork this repository* to fork the repository in your GitHub account. Follow the [simple walkthrough](https://docs.microsoft.com/en-us/azure/devops/demo-gen/use-demo-generator-v2?view=azdevops&viewFallbackFrom=vsts") to create the project on your Azure DevOps organization.
+1. Provision the **Tailwind Traders** project to your Azure DevOps organization with the [Azure DevOps Demo Generator](https://azuredevopsdemogenerator.azurewebsites.net/?name=tailwindtraders). Select the checkbox -*Yes, I want to fork this repository* to fork the repository in your GitHub account. Follow the [simple walkthrough](https://docs.microsoft.com/en-us/azure/devops/demo-gen/use-demo-generator-v2?view=azdevops&viewFallbackFrom=vsts") to create the project on your Azure DevOps organization.
 
 1. You will need the [Tailwind Traders Website source code](https://github.com/Microsoft/TailwindTraders-Website) forked to your GitHub account.
 
