@@ -15,7 +15,7 @@ The key takeaways of the demo are:
 - Microsoft provides the only comprehensive DevOps solution that spans from development to project management to deployment to operations.
 - It doesn't matter what technologies or processes you're using- even setting up a Node.js solution on GitHub to deploy to a Linux container that connects to a Cosmos DB is a seamless, straightforward experience.
 - Azure offers a practical approach to automation at every step of the DevOps lifecycle that enables companies to focus their efforts on creating business value.
-- Microsoft launched Teams, a collaborative platform in Office 365, enables the use for ChatOps. Since its formal release, Microsoft Teams has added more integration features and a command line-like approach to application control. Teams allows multiple users to participate in a single chat channel, query and drive services such as build automation and application performance management from within the group chat window.  
+
 ## Before you begin
 
 1. You will need a [GitHub](https://github.com) account.
@@ -36,27 +36,18 @@ The key takeaways of the demo are:
 
 1. GitHub Pull Requests extension for Visual Studio Code installed from https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github.
 
-## Integrate Microsoft Teams with Azure DevOps and GitHub
+## Microsoft Teams
 
-Microsoft Teams is the chat-centered workspace that provides instant access to everything needed for DevOps teamwork. It is that dedicated hub that brings your teams, conversations, content, and tools from across Azure DevOps, GitHub, and Office together into one place.
+Integrate Microsoft Teams with Azure DevOps and GitHub to create or join a Microsoft team for this demo.
 
-1. Launch Microsoft Teams - you can either open the web app or download the app to your desktop from [here](https://teams.microsoft.com/dl/launcher/launcher.html?url=/_%23/l/home/0/0&type=home).
+- Integrate and configure Azure DevOps and GitHub connectors with Teams.
+- Follow the instructions [here](../extend/teams) to integrate Azure DevOps notifications for work item and Azure Pipelines updates. Install the Azure Pipelines app and configure the bot service. Also add a tab with the user stories Kanban board.
+- Use the same process to integrate GitHub (using the GitHub Enterprise connector) and add a tab for GitHub pull requests.
 
-1. Azure DevOps Services integration with Microsoft Teams provides a comprehensive chat and collaborative experience across the development cycle.  Follow the instructions [here](https://azuredevopslabs.com/labs/vstsextend/teams/#integrating-microsoft-teams-with-azure-devops-services) to integrate Teams with your Contoso-Air Azure DevOps project.
-
-1. Install and configure the Azure Pipelines app with Teams to monitor the events for your pipelines. Follow the instructions [here](https://azuredevopslabs.com/labs/vstsextend/teams/#azure-pipelines-with-microsoft-teams) to set up and manage subscriptions for releases, pending approvals, completed builds etc. and get notifications right into your Teams channel.
-
-1. Install GitHub for Microsoft Teams application from Microsoft Teams App Store.
-
-    ![](images/teams-githubapp.png)
-
-1. Setup a tab for GitHub Pull requests in your Teams channel. While configuring the tab, select the repository for which you would like to pin the issues or pull requests view. Once the tab is pinned, everyone in the team can view the tab but only those who’ve access to the repository would be able to see the issues/pull requests content.
-
-    ![](images/github-prtab.png)
 
 ### Demo Scenario
 
-In this demo, we'll be illustrating the integration and automation benefits of Azure DevOps. *Tailwind Traders* is a fictitious retail company showcasing the future of intelligent application experiences. These reference apps are all are powered by the Azure cloud, built with best-in-class tools, and made smarter through data and AI. Let us implement continuous integration and continuous delivery pipelines so that you can quickly update their public services and take advantage of the full benefits of DevOps and the cloud.
+In this demo, we'll be illustrating the integration and automation benefits of Azure DevOps. *Tailwind Traders* is a fictitious retail company showcasing the future of intelligent application experiences. These reference apps are all are powered by the Azure cloud, built with best-in-class tools, and made smarter through data and AI. They want to implement continuous integration and continuous delivery pipelines so that they can quickly update their public services and take advantage of the full benefits of DevOps and the cloud.
 
 
 ## Walkthrough: Integrating GitHub with Azure Pipelines
