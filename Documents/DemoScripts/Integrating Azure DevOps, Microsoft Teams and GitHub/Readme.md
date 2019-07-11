@@ -44,11 +44,11 @@ Microsoft Teams is the chat-centered workspace that provides instant access to e
 
 1. Azure DevOps Services integration with Microsoft Teams provides a comprehensive chat and collaborative experience across the development cycle.  Follow the instructions [here](https://azuredevopslabs.com/labs/vstsextend/teams/#integrating-microsoft-teams-with-azure-devops-services) to integrate Teams with your Tailwind Traders Azure DevOps project.
 
-1. View your teams Kanban board or favorite dashboard directly into Microsoft Teams. Configure the Azure DevOps Kanban board and Dashboard in Teams by following the instructions [here](https://azuredevopslabs.com/labs/vstsextend/teams/#azure-devops-kanban-board--dashboards-in-teams).
+1. View your teams Kanban board or favorite dashboard directly from Microsoft Teams. Configure the Azure DevOps Kanban board and Dashboard in Teams by following the instructions [here](https://azuredevopslabs.com/labs/vstsextend/teams/#azure-devops-kanban-board--dashboards-in-teams).
 
 1. Install and configure the Azure Pipelines app with Teams to monitor the events for your pipelines. Follow the instructions [here](https://azuredevopslabs.com/labs/vstsextend/teams/#azure-pipelines-with-microsoft-teams) to set up and manage subscriptions for releases, pending approvals, completed builds etc. and get notifications right into your Teams channel.
 
-1. Install GitHub for Microsoft Teams application from Microsoft Teams App Store.
+1. Install **GitHub for Microsoft Teams** application from the Teams' **Apps** option.
 
     ![](Images/teams-githubapp.png)
 
@@ -68,7 +68,7 @@ To interact with Azure, you'll need to create a Service Endpoint in Azure DevOps
 
 1. Install the Azure CLI 2.0 if it is not already installed by following the steps here https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest based on your environment.
 
-1. Once Azure CLI 2.0 is installed, open Azure CLI 2.0 and log into Azure by running the below command and following the prompts
+1. Once Azure CLI 2.0 is installed, open PowerShell and log into Azure by running the below command and following the prompts
 
     > az login
 
@@ -80,9 +80,9 @@ To interact with Azure, you'll need to create a Service Endpoint in Azure DevOps
 
 1. You will need the below three values from the Service Principal account to be able to successfully create the Service Endpoint in Azure DevOps, you should note them now for use later.
 
-    - Tenant ID
+    - Tenant
     - Service Principal Key (also referred to as Password)
-    - Service Principal Client ID (referred to as App ID)
+    - Service Principal Client ID (referred to as appid)
 
 1. Create an **Azure Service Endpoint** by clicking on the **Project Settings** icon in the Azure DevOps Portal, select **Service connections** and then **New Service Endpoint** and selecting **Azure Resource Manager** from the drop-down list.
 
@@ -146,13 +146,13 @@ Now that Azure Pipelines has been installed and configured, we can start buildin
 
     ![Starter pipeline](Images/Starter_pipeline.png)
 
-1. Replace the default template with the below YAML snippet and substitute variables section with relevant values below.
+1. Replace the default template with the below YAML snippet and substitute the below variables with relevant values.
 
     ```yaml
     variables:
-      azureSubscription: name-of-your-azure-subscription
-      resourcegroup: name-of-your-resource-group
-      location: location of your resources
+      azureSubscription: <<Connection-name-of your-ARM endpoint>>
+      resourcegroup: <<name-of-your-resource-group>>
+      location: <<location of your resources>>
       ImageName: website
 
     steps:
@@ -189,7 +189,7 @@ Now that Azure Pipelines has been installed and configured, we can start buildin
         imageName: '$(ImageName):$(Build.BuildId)'
     ```
 
-   > **Note:** YAML is very strict with indentation. If you are new to YAML, it is recommended that you use tools to format and validate the code. There are several free tools available on the web.
+      > **Note:** YAML is very strict with indentation. If you are new to YAML, it is recommended that you use tools to format and validate the code. There are several free tools available on the web.
 
 1. Click **Save and run**.
 
@@ -594,7 +594,6 @@ Microsoft Teams is a great place to manage certain DevOps processes, such as app
  
 1. When the deployment succeeds, you will receive another notification of success in the Teams tab.
  
-
 ## Summary
 
 Many organizations have their projects hosted in GitHub, and we just showed how you can set up automated deployment to Azure in minutes. And it doesn’t matter what kind of application they’re building or what kind of environment they’re deploying to. Once this automation is in place, companies can turn their focus to developing business value rather than on the infrastructure.
