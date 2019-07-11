@@ -50,11 +50,11 @@ Microsoft Teams is the chat-centered workspace that provides instant access to e
 
 1. Install GitHub for Microsoft Teams application from Microsoft Teams App Store.
 
-    ![](images/teams-githubapp.png)
+    ![](Images/teams-githubapp.png)
 
 1. Setup a tab for GitHub Pull requests in your Teams channel. While configuring the tab, select the repository for which you would like to pin the issues or pull requests view. Once the tab is pinned, everyone in the team can view the tab but only those who’ve access to the repository would be able to see the issues/pull requests content.
 
-    ![](images/github-prtab.png)
+    ![](Images/github-prtab.png)
 
 ### Demo Scenario
 
