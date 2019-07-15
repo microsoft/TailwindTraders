@@ -42,6 +42,8 @@ Microsoft Teams is the chat-centered workspace that provides instant access to e
 
 1. Launch Microsoft Teams - you can either open the web app or download the app to your desktop from [here](https://teams.microsoft.com/dl/launcher/launcher.html?url=/_%23/l/home/0/0&type=home).
 
+1. Click **Join or create a team** to create a team - *Tailwind Traders* and privacy set as **Private - Only team owners can add members**. Finally, add users to the team so that they get notified of the events that occur and can start discussion with other team members. 
+
 1. Azure DevOps Services integration with Microsoft Teams provides a comprehensive chat and collaborative experience across the development cycle.  Follow the instructions [here](https://azuredevopslabs.com/labs/vstsextend/teams/#integrating-microsoft-teams-with-azure-devops-services) to integrate Teams with your Tailwind Traders Azure DevOps project.
 
 1. View your teams Kanban board or favorite dashboard directly from Microsoft Teams. Configure the Azure DevOps Kanban board and Dashboard in Teams by following the instructions [here](https://azuredevopslabs.com/labs/vstsextend/teams/#azure-devops-kanban-board--dashboards-in-teams).
@@ -199,7 +201,7 @@ Now that Azure Pipelines has been installed and configured, we can start buildin
 
     ![save-and-run1](Images/save_and_run1.png)
 
-1. You will see an error - **Authorization failed**. Click the **Authorize resources** button to authorize the endpoint connection.
+1. You might see an error - **Authorization failed**. Click the **Authorize resources** button to authorize the endpoint connection.
 
     ![Authorization](Images/authorizing_error.png)
 
@@ -207,7 +209,7 @@ Now that Azure Pipelines has been installed and configured, we can start buildin
 
     ![Authorization status](Images/resources_authorized.png)
 
-1. Click **Run** to start the build process. Follow the build through completion. 
+1. **Queue** the build in the same window to start the build process. Follow the build through completion. 
   
     ![job-summary](Images/job_summary.png)
 
