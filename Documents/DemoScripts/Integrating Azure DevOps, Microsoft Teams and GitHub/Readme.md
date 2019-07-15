@@ -68,7 +68,7 @@ In this demo, we'll be illustrating the integration and automation benefits of A
 
 To interact with Azure, you'll need to create a Service Endpoint in Azure DevOps. This endpoint includes the authentication information required to deploy to Azure.
 
-1. Install the Azure CLI 2.0 if it is not already installed by following the steps here https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest based on your environment.
+1. Install the Azure CLI 2.0 if it is not already installed by following the steps [here] https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest based on your environment.
 
 1. Once Azure CLI 2.0 is installed, open PowerShell and log into Azure by running the below command and following the prompts
 
@@ -86,7 +86,7 @@ To interact with Azure, you'll need to create a Service Endpoint in Azure DevOps
     - Service Principal Key (also referred to as Password)
     - Service Principal Client ID (referred to as appid)
 
-1. Create an **Azure Service Endpoint** by clicking on the **Project Settings** icon in the Azure DevOps Portal, select **Service connections** and then **New Service Endpoint** and selecting **Azure Resource Manager** from the drop-down list.
+1. Create an **Azure Service Endpoint** by clicking on the **Project Settings** icon in the Azure DevOps Portal, select **Service connections** and then **New Service connection** and selecting **Azure Resource Manager** from the drop-down list.
 
     ![New ARM](Images/service_connection.png)
 
@@ -96,15 +96,15 @@ To interact with Azure, you'll need to create a Service Endpoint in Azure DevOps
 
     ![Add Service Endpoint](Images/service_principal_authentication.png)
 
-1. Fill in the fields required as per the information you obtained earlier when creating your SP, click Verify connection and ensure you can successfully verify the connection to Azure. Finally, click **OK**.
+1. Fill in the fields required as per the information you obtained earlier when creating your SP, click **Verify connection** and ensure you can successfully verify the connection to Azure. Finally, click **OK**.
 
     ![Validate details](Images/verify_connection.png)
 
 ### Configuring the Azure Continuous Integration Pipeline
 
-Now that Azure Pipelines has been installed and configured, we can start building the pipelines, but we will need to select a project where the pipeline will be saved. You may select an existing or create a new Azure DevOps project to hold and run the pipelines we need for continuous integration and continuous delivery. The first thing we'll do is to create a CI pipeline.
+Now that Azure Pipelines has been installed and configured, we can start building the pipelines, but we will need to select a project where the pipeline will be saved. You may select an existing or create a new Azure DevOps project to run the pipelines we need for continuous integration and continuous delivery. The first thing we'll do is to create a CI pipeline.
 
-1. Navigate to the **GitHub Market Place**. The GitHub Marketplace provides a variety of tools from Microsoft and 3rd parties that help you extend your project workflows. Click Marketplace from the top navigation to visit it.
+1. Navigate to the **GitHub Marketplace**. The GitHub Marketplace provides a variety of tools from Microsoft and 3rd parties that help you extend your project workflows. Click Marketplace from the top navigation to visit it.
 
     ![GitHub Marketplace](Images/githubmarket.png)
 
@@ -112,11 +112,11 @@ Now that Azure Pipelines has been installed and configured, we can start buildin
 
     ![Search Azure Pipelines](Images/azpipelineresult.png)
 
-1. The Azure Pipelines offers unlimited build minutes with 10 free parallel jobs for public repositories, and 1800 build minutes per month with 1 parallel job if you’re using a private repository. Click **Install it for free** under *Pricing and Setup* towards the bottom of the page.
+1. The Azure Pipelines offers unlimited build minutes with 10 free parallel jobs for public repositories, and 1800 build minutes per month with 1 parallel job if you’re using a private repository. Click **Install it for free** under *Pricing and Setup*  towards the bottom of the page.
 
     ![Install Pipelines](Images/installpipelines.png)
 
-1. If you have multiple GitHub accounts, select the one you forked the Website to from the **Switch billing account** dropdown.
+1. If you have multiple GitHub accounts, select the one you forked the Website from the **Switch billing account** dropdown.
 
     ![Switch account](Images/switchaccount.png)
 
@@ -142,7 +142,7 @@ Now that Azure Pipelines has been installed and configured, we can start buildin
 
     ![forked-repo](Images/forked-repo.png)
 
-    Every build pipeline is simply a set of tasks. Whether it's copying files, compiling source, or publishing artifacts, the existing library of tasks covers the clear majority of scenarios. You can even create your own if you have specialized needs not already covered. We're going to use YAML, a markup syntax that lends itself well to describing the build pipeline. Select **Starter pipeline** as a starting point based on an analysis of our source project. We'll replace the contents with the final YAML required for our project.
+    Every build pipeline is simply a set of tasks. Whether it's copying files, compiling code, or publishing artifacts, the existing library of tasks covers the clear majority of scenarios. You can even create your own if you have specialized needs not already covered. We're going to use YAML, a markup syntax that lends itself well to describing the build pipeline. Select **Starter pipeline** as a starting point based on an analysis of our source project. We'll replace the contents with the final YAML required for our project.
 
 1. Select the **Starter pipeline** template.
 
