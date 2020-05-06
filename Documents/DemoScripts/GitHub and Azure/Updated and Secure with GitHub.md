@@ -1,5 +1,5 @@
 <a name="Title"></a>
-# Updated and Secure with GitHub Demo Script #
+# Update and Secure with GitHub Demo Script #
 
 <a name="Setup"></a>
 ## Setup ##
