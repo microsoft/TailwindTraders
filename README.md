@@ -24,7 +24,7 @@ For this demo reference, we built several consumer and line-of-business applicat
 * [Rewards (ASP.NET Framework)](https://github.com/Microsoft/TailwindTraders-Rewards)
 * [Mobile (Xamarin Forms 4.0)](https://github.com/Microsoft/TailwindTraders-Mobile)
 * [Shipping Management (Power App + Azure Serverless)](https://github.com/microsoft/TailwindTraders-ShippingManagement)
-* [Point of Sale (VB6 to ASP.NET Migration with Mobilize.net)](https://github.com/microsoft/TailwindTraders-PointOfSale)
+* [Point of Sale (VB6 to ASP.NET Migration with Mobilize.net)](https://github.com/microsoft/TailwindTraders-PointOfSale) - **ARCHIVED**
 
 As part of Connect(); 2018 we also released the [AI Vision Provision](https://github.com/Microsoft/AIVisualProvision) sample mobile app, which allows you to deploy Azure services from scanning Azure Services Logos or Text. The [AI Pet Detector](https://github.com/Microsoft/connect-petdetector) demo app is also available, learn how to create a Pet Detector image recognition with Azure Notebooks, Azure Machine Learning and Visual Studio Code.
 
