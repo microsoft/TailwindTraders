@@ -18,11 +18,11 @@ Learn more about it with [Microsoft Learn - Introduction to Azure](https://docs.
 
 For this demo reference, we built several consumer and line-of-business applications and a set of backend services. You can find all repositories in the following locations:
 
-* [Backend (AKS)](https://github.com/Microsoft/TailwindTraders-Backend)
-* [Website (ASP.NET & React)](https://github.com/Microsoft/TailwindTraders-Website)
-* [Desktop (WinForms & WPF -.NET Core)](https://github.com/Microsoft/TailwindTraders-Desktop)
-* [Rewards (ASP.NET Framework)](https://github.com/Microsoft/TailwindTraders-Rewards)
-* [Shipping Management (Power App + Azure Serverless)](https://github.com/microsoft/TailwindTraders-ShippingManagement)
+* [Backend (AKS)](https://github.com/Microsoft/TailwindTraders-Backend) **ARCHIVED**
+* [Website (ASP.NET & React)](https://github.com/Microsoft/TailwindTraders-Website) **ARCHIVED**
+* [Desktop (WinForms & WPF -.NET Core)](https://github.com/Microsoft/TailwindTraders-Desktop) **ARCHIVED**
+* [Rewards (ASP.NET Framework)](https://github.com/Microsoft/TailwindTraders-Rewards) **ARCHIVED**
+* [Shipping Management (Power App + Azure Serverless)](https://github.com/microsoft/TailwindTraders-ShippingManagement) **ARCHIVED**
 * [Mobile (Xamarin Forms 4.0)](https://github.com/Microsoft/TailwindTraders-Mobile) - **ARCHIVED**
 * [Point of Sale (VB6 to ASP.NET Migration with Mobilize.net)](https://github.com/microsoft/TailwindTraders-PointOfSale) - **ARCHIVED**
 
